@@ -1,5 +1,5 @@
 # ADPC
-ADPC is an automated mechanism for the communication of users’ privacy decisions and data controllers' responses. It aims to empower users to protect their online privacy in a human-centric and enforceable manner. It also helps online publishers and service providers to comply with the data protection and consumer protection regulations.
+Advanced Data Protection Control (or ADPC) is an automated mechanism for the communication of users’ privacy decisions and data controllers' responses. It aims to empower users to protect their online privacy in a human-centric and enforceable manner. It also helps online publishers and service providers to comply with the data protection and consumer protection regulations.
 
 The ADPC spec defines a method for expressing user decisions about personal data processing under the European Union’s data protection regulations, and similar regulations outside the EU. Currently, ADPC functions through the exchange of HTTP headers between the user agent and the web server, or through an equivalent JavaScript interface.
 
