@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 26.8.12">
+<meta name="generator" content="ReSpec 26.8.13">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -74,7 +74,7 @@ dfn{cursor:pointer}
 </style>
     
     
-<title>Advanced Data Protection Control</title>
+<title>Advanced Data Protection Control (ADPC)</title>
     
     
     
@@ -213,16 +213,16 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "company": "Sustainable Computing Lab"
     }
   ],
-  "publishISODate": "2021-06-14T00:00:00.000Z",
-  "generatedSubtitle": "Unofficial Draft 14 June 2021"
+  "publishISODate": "2021-06-15T00:00:00.000Z",
+  "generatedSubtitle": "Unofficial Draft 15 June 2021"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-UD"></head>
   <body class="h-entry" data-cite="WebIDL HTML INFRA URL WEBIDL DOM FETCH"><div class="head">
-     <h1 id="title" class="title">Advanced Data Protection Control</h1>
+     <h1 id="title" class="title">Advanced Data Protection Control (ADPC)</h1>
     
     <h2>
       Unofficial Draft
-      <time class="dt-published" datetime="2021-06-14">14 June 2021</time>
+      <time class="dt-published" datetime="2021-06-15">15 June 2021</time>
     </h2>
     <dl>
       
@@ -956,10 +956,10 @@ ADPC: withdraw=*, object=direct-marketing
       <section id="giving-and-withdrawing-consent-and-objecting-to-processing">
         <h3 id="giving-withdrawing-objecting-js"><bdi class="secno">8.2 </bdi>Giving and withdrawing consent, and objecting to processing<a class="self-link" aria-label="§" href="#giving-withdrawing-objecting-js"></a></h3>
         <p>
-          To signal user decisions to the website, the user agent passes the appropriate values in the return value of the <a data-link-type="idl" data-lt="request()" href="#dfn-request" class="internalDFN" id="ref-for-dfn-request-3"><code>request</code></a><code>()</code> function. The return value is a <a data-link-type="idl" data-type="interface" href="https://heycam.github.io/webidl/#idl-promise"><code>Promise</code></a> that resolves with a <a data-link-type="dfn" href="#dfn-user-decisions-object" class="internalDFN" id="ref-for-dfn-user-decisions-object-2">user decisions object</a>.
+          To signal user decisions to the website, the user agent passes the appropriate values in the return value of the <a data-link-type="idl" data-lt="request()" href="#dfn-request" class="internalDFN" id="ref-for-dfn-request-3"><code>request</code></a><code>()</code> function. The return value is a <a data-link-type="idl" data-lt="Promise" data-type="interface" href="https://heycam.github.io/webidl/#idl-promise"><code>Promise</code></a> that resolves with a <a data-link-type="dfn" href="#dfn-user-decisions-object" class="internalDFN" id="ref-for-dfn-user-decisions-object-2">user decisions object</a>.
         </p>
         <p>
-          Whenever the user changes their decisions relating to the website while visiting it, the user agent notifies the page by triggering the <code>decisionchange</code> event on <a data-link-type="idl" href="#dfn-dataprotectioncontrol" class="internalDFN" id="ref-for-dfn-dataprotectioncontrol-1"><code>dataProtectionControl</code></a>, which includes the updated <a data-link-type="dfn" href="#dfn-user-decisions-object" class="internalDFN" id="ref-for-dfn-user-decisions-object-3">user decisions object</a>.
+          Whenever the user changes their decisions relating to the website while visiting it, the user agent notifies the page by triggering the <code>decisionchange</code> event on <a data-link-type="idl" data-lt="dataProtectionControl" href="#dfn-dataprotectioncontrol" class="internalDFN" id="ref-for-dfn-dataprotectioncontrol-1"><code>dataProtectionControl</code></a>, which includes the updated <a data-link-type="dfn" href="#dfn-user-decisions-object" class="internalDFN" id="ref-for-dfn-user-decisions-object-3">user decisions object</a>.
         </p>
         <p>
           A <dfn id="dfn-user-decisions-object" tabindex="0" aria-haspopup="dialog">user decisions object</dfn> is a JavaScript object, the members of which signal the user’s decisions to the website. Each member is optional:
