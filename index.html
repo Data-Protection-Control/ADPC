@@ -874,7 +874,7 @@
       <section class="informative">
         <h3>Concept</h3>
         <p>
-          Users regularly feel overwhelmed by consent requests (‘consent fatigue’). Enabeling trusted parties to suggest including or excluding certain consent requests could allow users and user agents to determine which consent requests to prioritise or automatically consent to, and which consent requests to ignore or automatically reject. Websites, groups of controllers or consumer groups may promote inclusion lists, for example of websites providing quality journalism or for the purpose of informing users about regular discounts.
+          Users regularly feel overwhelmed by consent requests (‘consent fatigue’). Enabling trusted parties to suggest including or excluding certain consent requests could allow users and user agents to determine which consent requests to prioritise or automatically consent to, and which consent requests to ignore or automatically reject. Websites, groups of controllers or consumer groups may promote inclusion lists, for example of websites providing quality journalism or for the purpose of informing users about regular discounts.
         </p>
         <p>
           The user agent may allow to import such third party [=bulk consent requests lists=], which may be made available as a file or as a continuously updated online resource. The discovery and exchange mechanisms used are beyond the scope of this specification.
@@ -971,7 +971,7 @@
         Users may use various forms of communicating consent, withdrawal of consent, or objections — the user could send an email, letter, or click a button on a website. Independent of the communication channel, the most recent communication would usually override the previous exercise of rights. As the ADPC signal would typically be communicated in every interaction with a website, it would quickly override previous expressions through any other communication, like consent banners, emails or letters.
       </p>
       <p>
-        If the ADPC signal is sent in the same transaction as another signal with related meaning (e.g. when clicking an “agree” button on a website, or sending another signal such as a [[?tracking-dnt|DNT]] or <a href="https://globalprivacycontrol.org/">Sec-GPC</a> HTTP header), any non-contradicting communication can be interpreted combinedly without problem. Any expressions of consent that are in conflict with each other will not be “unambiguous” as required by Article 4(7) GDPR, and should thus be interpreted as a lack of valid consent.
+        If the ADPC signal is sent in the same transaction as another signal with related meaning (e.g. when clicking an “agree” button on a website, or sending another signal such as a [[?tracking-dnt|DNT]] or <a href="https://globalprivacycontrol.org/">Sec-GPC</a> HTTP header), any non-contradicting communication can be interpreted in combination without problem. Any expressions of consent that are in conflict with each other will not be “unambiguous” as required by Article 4(7) GDPR, and should thus be interpreted as a lack of valid consent.
       </p>
     </section>
     <section class="informative">
@@ -1007,7 +1007,7 @@
         <section>
           <h4>Misplaced trust</h4>
           <p>
-            First of all, this mechanism cannot prevent websites from giving false or incomplete information, or simply disrespecting the user’s decisions. A false pretense of control may erode trust in the system. While this might equally be the case without use of this mechanism, the presentation through the web browser interface, which is generally more trusted than the website being visited, may give a false sense that decisions are enforced by the user agent, as is the case with permission requests for e.g. microphone access.
+            First of all, this mechanism cannot prevent websites from giving false or incomplete information, or simply disrespecting the user’s decisions. A false pretence of control may erode trust in the system. While this might equally be the case without use of this mechanism, the presentation through the web browser interface, which is generally more trusted than the website being visited, may give a false sense that decisions are enforced by the user agent, as is the case with permission requests for e.g. microphone access.
           </p>
         </section>
         <section>
@@ -1019,13 +1019,13 @@
             However, a limited ability to do <em>first-party tracking</em> is unavoidable given that users express their decisions, which will necessarily convey some information. The user’s data protection decisions, simply by being different from those of other persons, could be used to help re-identify them on subsequent visits.
           </p>
           <p>
-            The situation here is similar to that of first-party cookies, although it is made less impactful because the requests are visible to the user, and the responses are made by the user rather than set arbitrarily by the website. Moreover, the entropy of user decisions is likely very low: if a website asks four consent questions, these provide at most four bits of information, but in practice much less because users do not choose their responses perfectly at random. Especially if a website makes, say, fourty consent requests, users are unlikely to make fourty independent decisions: rejecting or accepting all requests at once is a common response.
+            The situation here is similar to that of first-party cookies, although it is made less impactful because the requests are visible to the user, and the responses are made by the user rather than set arbitrarily by the website. Moreover, the entropy of user decisions is likely very low: if a website asks four consent questions, these provide at most four bits of information, but in practice much less because users do not choose their responses perfectly at random. Especially if a website makes, say, forty consent requests, users are unlikely to make forty independent decisions: rejecting or accepting all requests at once is a common response.
           </p>
           <p>
             Besides the individual users’ responses, without further precautions the [=request identifiers=] also risk to be usable as persistent tracking vectors. A malicious website could, rather than having a static list of consent requests, customise the request identifiers for each user to recognise the user again (if they consented) during a subsequent visit. Various approaches could help prevent this form of tracking. For example, user agents could refrain from transmitting the consent header value along with the first HTTP request to a website in a new session, in order to first verify whether the website still makes the same requests as before.
           </p>
           <p>
-            Even though the mechanism does not enable cross-website tracking, and is less impactful than first-party cookies, the possibility to track users would need to be much less than with cookies, so that users can trust they keep their data protection decisions when removing their cookies. To this end, mitigations should be developed, and implementers should evaluate their abilities to limit entropy and may make trade-offs between efficiency and anonimity.
+            Even though the mechanism does not enable cross-website tracking, and is less impactful than first-party cookies, the possibility to track users would need to be much less than with cookies, so that users can trust they keep their data protection decisions when removing their cookies. To this end, mitigations should be developed, and implementers should evaluate their abilities to limit entropy and may make trade-offs between efficiency and anonymity.
           </p>
         </section>
         <section>
