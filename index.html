@@ -1,15 +1,14 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 26.9.3">
+<meta name="generator" content="ReSpec 26.16.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
-aside.example,div.example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
+:is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
 div.illegal-example{color:red}
 div.illegal-example p{color:#000}
-aside.example,div.example{padding:.5em;border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
+:is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
 aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
-aside.example div.example span.example-title{color:#999}
 .example pre{background-color:rgba(0,0,0,.03)}
 </style>
 <style>
@@ -43,11 +42,11 @@ a.idlEnumItem{color:#000;border-bottom:1px dotted #ccc;text-decoration:none}
 .idlSectionComment{color:gray}
 .idlIncludes a{font-weight:700}
 .respec-button-copy-paste:focus{text-decoration:none;border-color:#51a7e8;outline:0;box-shadow:0 0 5px rgba(81,167,232,.5)}
-.respec-button-copy-paste.selected:focus,.respec-button-copy-paste:focus:hover{border-color:#51a7e8}
-.respec-button-copy-paste.zeroclipboard-is-active,.respec-button-copy-paste.zeroclipboard-is-hover,.respec-button-copy-paste:active,.respec-button-copy-paste:hover{text-decoration:none;background-color:#ddd;background-image:linear-gradient(#eee,#ddd);border-color:#ccc}
-.respec-button-copy-paste.selected,.respec-button-copy-paste.zeroclipboard-is-active,.respec-button-copy-paste:active{background-color:#dcdcdc;background-image:none;border-color:#b5b5b5;box-shadow:inset 0 2px 4px rgba(0,0,0,.15)}
+.respec-button-copy-paste:is(:focus:hover,.selected:focus){border-color:#51a7e8}
+.respec-button-copy-paste:is(:hover,:active,.zeroclipboard-is-hover,.zeroclipboard-is-active){text-decoration:none;background-color:#ddd;background-image:linear-gradient(#eee,#ddd);border-color:#ccc}
+.respec-button-copy-paste:is(:active,.selected,.zeroclipboard-is-active){background-color:#dcdcdc;background-image:none;border-color:#b5b5b5;box-shadow:inset 0 2px 4px rgba(0,0,0,.15)}
 .respec-button-copy-paste.selected:hover{background-color:#cfcfcf}
-.respec-button-copy-paste.disabled,.respec-button-copy-paste.disabled:hover,.respec-button-copy-paste:disabled,.respec-button-copy-paste:disabled:hover{color:rgba(102,102,102,.5);cursor:default;background-color:rgba(229,229,229,.5);background-image:none;border-color:rgba(197,197,197,.5);box-shadow:none}
+.respec-button-copy-paste:is(:disabled,:disabled:hover,.disabled,.disabled:hover){color:rgba(102,102,102,.5);cursor:default;background-color:rgba(229,229,229,.5);background-image:none;border-color:rgba(197,197,197,.5);box-shadow:none}
 @media print{
 .respec-button-copy-paste{visibility:hidden}
 }
@@ -94,7 +93,7 @@ dfn{cursor:pointer}
 100%{transform:scale(1,1)}
 }
 .hljs{background:0 0!important}
-a abbr,h1 abbr,h2 abbr,h3 abbr,h4 abbr,h5 abbr,h6 abbr{border:none}
+:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
 dfn{font-weight:700}
 a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
 a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
@@ -136,11 +135,11 @@ details.respec-tests-details>li{padding-left:1em}
 a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 h2,h3,h4,h5,h6{position:relative}
 aside.example .marker>a.self-link{color:inherit}
-h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
-h2>a.self-link::before,h3>a.self-link::before,h4>a.self-link::before,h5>a.self-link::before,h6>a.self-link::before{content:"§";display:block}
+:is(h2,h3,h4,h5,h6)>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
+:is(h2,h3,h4,h5,h6)>a.self-link::before{content:"§";display:block}
 @media (max-width:767px){
 dd{margin-left:0}
-h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{left:auto;top:auto}
+:is(h2,h3,h4,h5,h6)>a.self-link{left:auto;top:auto}
 }
 @media print{
 .removeOnSave{display:none}
@@ -192,27 +191,6 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "edDraftURI": "https://www.dataprotectioncontrol.org/spec/",
   "otherLinks": [
     {
-      "key": "Participate:",
-      "data": [
-        {
-          "value": "GitHub Data-Protection-Control/ADPC",
-          "href": "https://github.com/Data-Protection-Control/ADPC/"
-        },
-        {
-          "value": "File an issue",
-          "href": "https://github.com/Data-Protection-Control/ADPC/issues/"
-        },
-        {
-          "value": "Commit history",
-          "href": "https://github.com/Data-Protection-Control/ADPC/commits/main"
-        },
-        {
-          "value": "Pull requests",
-          "href": "https://github.com/Data-Protection-Control/ADPC/pulls/"
-        }
-      ]
-    },
-    {
       "key": "More information",
       "data": [
         {
@@ -250,33 +228,35 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "company": "Sustainable Computing Lab"
     }
   ],
-  "publishISODate": "2021-07-08T00:00:00.000Z",
-  "generatedSubtitle": "Unofficial Draft 08 July 2021"
+  "publishISODate": "2021-10-22T00:00:00.000Z",
+  "generatedSubtitle": "Unofficial Draft 22 October 2021"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-UD"></head>
-  <body class="h-entry" data-cite="WebIDL HTML INFRA URL WEBIDL DOM FETCH"><div class="head">
+  <body class="h-entry" data-cite="WEBIDL HTML INFRA URL WEBIDL DOM FETCH"><div class="head">
      <h1 id="title" class="title">Advanced Data Protection Control (ADPC)</h1>
     
-    <h2>
-      Unofficial Draft
-      <time class="dt-published" datetime="2021-07-08">08 July 2021</time>
-    </h2>
-    <dl>
-      
-      <dt>Latest editor's draft:</dt><dd><a href="https://www.dataprotectioncontrol.org/spec/">https://www.dataprotectioncontrol.org/spec/</a></dd>
-      
-      
-      
-      
-      
-      <dt>Editors:</dt>
-      <dd class="editor p-author h-card vcard" data-editor-id="73624">
+    <h2>Unofficial Draft <time class="dt-published" datetime="2021-10-22">22 October 2021</time></h2>
+    <details open="">
+      <summary>More details about this document</summary>
+      <dl>
+        
+        <dt>Latest editor's draft:</dt><dd><a href="https://www.dataprotectioncontrol.org/spec/">https://www.dataprotectioncontrol.org/spec/</a></dd>
+        <dt>History:</dt><dd>
+        <a href="https://github.com/Data-Protection-Control/ADPC/commits/main">Commit history</a>
+      </dd>
+        
+        
+        
+        
+        
+        <dt>Editors:</dt>
+        <dd class="editor p-author h-card vcard" data-editor-id="73624">
     <span class="p-name fn">Gerben</span> (<a class="p-org org h-org" href="https://noyb.eu">noyb</a>)
   </dd><dd class="editor p-author h-card vcard" data-editor-id="110909">
     <span class="p-name fn">Soheil Human</span> (<a class="p-org org h-org" href="http://sustainablecomputing.eu">Sustainable Computing Lab</a>)
   </dd>
-      
-      <dt>Authors:</dt><dd class="editor p-author h-card vcard">
+        
+        <dt>Authors:</dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="http://sustainablecomputing.eu">Soheil Human</a> (<span class="p-org org h-org">Sustainable Computing Lab</span>)
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://noyb.eu">Max Schrems</a> (<span class="p-org org h-org">noyb</span>)
@@ -287,25 +267,26 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </dd><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="http://sustainablecomputing.eu">Ben Wagner</a> (<span class="p-org org h-org">Sustainable Computing Lab</span>)
   </dd>
-      <dt>Participate:</dt><dd>
-    <a href="https://github.com/Data-Protection-Control/ADPC/">GitHub Data-Protection-Control/ADPC</a>
-  </dd><dd>
-    <a href="https://github.com/Data-Protection-Control/ADPC/issues/">File an issue</a>
-  </dd><dd>
-    <a href="https://github.com/Data-Protection-Control/ADPC/commits/main">Commit history</a>
-  </dd><dd>
-    <a href="https://github.com/Data-Protection-Control/ADPC/pulls/">Pull requests</a>
-  </dd><dt>More information</dt><dd>
+        <dt>Feedback:</dt><dd>
+        <a href="https://github.com/Data-Protection-Control/ADPC/">GitHub Data-Protection-Control/ADPC</a>
+        (<a href="https://github.com/Data-Protection-Control/ADPC/pulls/">pull requests</a>,
+        <a href="https://github.com/Data-Protection-Control/ADPC/issues/new/choose">new issue</a>,
+        <a href="https://github.com/Data-Protection-Control/ADPC/issues/">open issues</a>)
+      </dd>
+        <dt>More information</dt><dd>
     <a href="https://www.dataprotectioncontrol.org">dataprotectioncontrol.org</a>
   </dd>
-    </dl>
+      </dl>
+    </details>
     
     
     
     <p class="copyright">
-      This document is licensed under a
-      <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot">Creative Commons Attribution 4.0 International Public License</a>
-      (CC-BY).
+      Copyright ©
+      2021
+      the document editors/authors.
+      Text is available under the
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International Public License</a>; additional terms may apply.
     </p>
     <hr title="Separator for header">
   </div>
@@ -845,8 +826,8 @@ Link: &lt;/our-dp-policy.fr.json&gt;; rel="consent-requests"; hreflang="fr"
           <p>
             Instead of presenting a consent requests resource without consent requests, a website <em class="rfc2119">SHOULD</em> therefore link to the special target <code>about:blank</code>.
           </p>
-          <aside class="example" id="example-15-supporting-adpc-not-requesting-any-consent"><div class="marker">
-    <a class="self-link" href="#example-15-supporting-adpc-not-requesting-any-consent">Example<bdi> 15</bdi></a><span class="example-title">: Supporting ADPC, not requesting any consent</span>
+          <aside class="example" id="example-supporting-adpc-not-requesting-any-consent"><div class="marker">
+    <a class="self-link" href="#example-supporting-adpc-not-requesting-any-consent">Example<bdi> 15</bdi></a><span class="example-title">: Supporting ADPC, not requesting any consent</span>
   </div>
             <pre aria-busy="false"><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/some/page</span> <span class="hljs-meta">HTTP/1.1</span></code></pre>
             <pre class="http" aria-busy="false"><code class="hljs">HTTP/1.1 200 OK
@@ -1003,10 +984,10 @@ ADPC: withdraw=*, object=direct-marketing
       <section id="giving-and-withdrawing-consent-and-objecting-to-processing">
         <h3 id="giving-withdrawing-objecting-js"><bdi class="secno">8.2 </bdi>Giving and withdrawing consent, and objecting to processing<a class="self-link" aria-label="§" href="#giving-withdrawing-objecting-js"></a></h3>
         <p>
-          To signal user decisions to the website, the user agent passes the appropriate values in the return value of the <a data-link-type="idl" data-lt="request()" href="#dfn-request" class="internalDFN" id="ref-for-dfn-request-3"><code>request</code></a><code>()</code> function. The return value is a <a data-link-type="idl" data-lt="Promise" data-type="interface" href="https://heycam.github.io/webidl/#idl-promise"><code>Promise</code></a> that resolves with a <a data-link-type="dfn" href="#dfn-user-decisions-object" class="internalDFN" id="ref-for-dfn-user-decisions-object-2">user decisions object</a>.
+          To signal user decisions to the website, the user agent passes the appropriate values in the return value of the <a data-link-type="idl" data-lt="request()" href="#dfn-request" class="internalDFN" id="ref-for-dfn-request-3"><code>request</code></a><code>()</code> function. The return value is a <a data-link-type="idl" data-lt="Promise" data-type="interface" href="https://webidl.spec.whatwg.org/#idl-promise"><code>Promise</code></a> that resolves with a <a data-link-type="dfn" href="#dfn-user-decisions-object" class="internalDFN" id="ref-for-dfn-user-decisions-object-2">user decisions object</a>.
         </p>
         <p>
-          Whenever the user changes their decisions relating to the website while visiting it, the user agent notifies the page by triggering the <code>decisionchange</code> event on <a data-link-type="idl" data-lt="dataProtectionControl" href="#dfn-dataprotectioncontrol" class="internalDFN" id="ref-for-dfn-dataprotectioncontrol-1"><code>dataProtectionControl</code></a>, which includes the updated <a data-link-type="dfn" href="#dfn-user-decisions-object" class="internalDFN" id="ref-for-dfn-user-decisions-object-3">user decisions object</a>.
+          Whenever the user changes their decisions relating to the website while visiting it, the user agent notifies the page by triggering the <code>decisionchange</code> event on <a data-link-type="idl" data-lt="dataProtectionControl" href="#dom-dataprotectioncontrol" class="internalDFN" id="ref-for-dom-dataprotectioncontrol-1"><code>dataProtectionControl</code></a>, which includes the updated <a data-link-type="dfn" href="#dfn-user-decisions-object" class="internalDFN" id="ref-for-dfn-user-decisions-object-3">user decisions object</a>.
         </p>
         <p>
           A <dfn id="dfn-user-decisions-object" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">user decisions object</dfn> is a JavaScript object, the members of which signal the user’s decisions to the website. Each member is optional:
@@ -1053,25 +1034,25 @@ ADPC: withdraw=*, object=direct-marketing
       </section>
       <section id="interface-definition">
         <h3 id="x8-3-interface-definition"><bdi class="secno">8.3 </bdi>Interface definition<a class="self-link" aria-label="§" href="#interface-definition"></a></h3>
-        <pre class="idl def" id="webidl-1604574685"><span class="idlHeader"><a class="self-link" href="#webidl-1604574685">WebIDL</a></span><code><span data-idl="" class="idlInterface" id="idl-def-dataprotectioncontrol" data-title="DataProtectionControl">[<span class="extAttr"><a data-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed">Exposed</a>=<a data-type="interface" href="https://html.spec.whatwg.org/multipage/system-state.html#navigator">Navigator</a></span>]
-interface <dfn data-export="" data-dfn-type="interface" id="dom-dataprotectioncontrol" data-idl="interface" data-title="DataProtectionControl" data-dfn-for="DataProtectionControl" class="idlID" tabindex="0" aria-haspopup="dialog"><code>DataProtectionControl</code></dfn> : <span class="idlSuperclass"><a data-type="interface" href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a></span> {<span data-idl="" class="idlMethod" id="idl-def-dataprotectioncontrol-request-consentrequestslist" data-title="request" data-dfn-for="DataProtectionControl"><span class="idlType">
-  <a data-type="interface" href="https://heycam.github.io/webidl/#idl-promise">Promise</a>&lt;<a href="#dom-userdecisionsobject" class="internalDFN" data-link-type="idl" id="ref-for-dom-userdecisionsobject-1"><code>UserDecisionsObject</code></a>&gt;</span> <dfn data-export="" data-dfn-type="method" id="dom-dataprotectioncontrol-request" data-idl="operation" data-title="request" data-dfn-for="DataProtectionControl" data-type="Promise" data-lt="request()|request(consentRequestsList)" data-local-lt="DataProtectionControl.request|DataProtectionControl.request()|request" class="idlName" tabindex="0" aria-haspopup="dialog"><code>request</code></dfn>(<span class="idlType"><a data-type="interface" href="https://heycam.github.io/webidl/#idl-object">object</a></span> <span class="idlParamName">consentRequestsList</span>);</span>
+        <pre class="idl def" id="webidl-1604574685"><span class="idlHeader"><a class="self-link" href="#webidl-1604574685">WebIDL</a></span><code><span data-idl="" class="idlInterface" id="idl-def-dataprotectioncontrol" data-title="DataProtectionControl">[<span class="extAttr"><a data-type="extended-attribute" href="https://webidl.spec.whatwg.org/#Exposed">Exposed</a>=<a data-type="interface" href="https://html.spec.whatwg.org/multipage/system-state.html#navigator">Navigator</a></span>]
+interface <dfn data-export="" data-dfn-type="interface" id="dom-dataprotectioncontrol" data-idl="interface" data-title="DataProtectionControl" data-dfn-for="" class="idlID" tabindex="0" aria-haspopup="dialog"><code>DataProtectionControl</code></dfn> : <span class="idlSuperclass"><a data-type="interface" href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a></span> {<span data-idl="" class="idlMethod" id="idl-def-dataprotectioncontrol-request-consentrequestslist" data-title="request" data-dfn-for="DataProtectionControl"><span class="idlType">
+  <a data-type="interface" href="https://webidl.spec.whatwg.org/#idl-promise">Promise</a>&lt;<a href="#dom-userdecisionsobject" class="internalDFN" data-link-type="idl" id="ref-for-dom-userdecisionsobject-1"><code>UserDecisionsObject</code></a>&gt;</span> <dfn data-export="" data-dfn-type="method" id="dom-dataprotectioncontrol-request" data-idl="operation" data-title="request" data-dfn-for="DataProtectionControl" data-type="Promise" data-lt="request()|request(consentRequestsList)" data-local-lt="DataProtectionControl.request|DataProtectionControl.request()|request" class="idlName" tabindex="0" aria-haspopup="dialog"><code>request</code></dfn>(<span class="idlType"><a data-type="interface" href="https://webidl.spec.whatwg.org/#idl-object">object</a></span> <span class="idlParamName">consentRequestsList</span>);</span>
 };</span><span data-idl="" class="idlInterface" id="idl-def-adpcevent" data-title="AdpcEvent">
 
-[<span class="extAttr"><a data-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed">Exposed</a>=<a href="#dfn-dataprotectioncontrol" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-dataprotectioncontrol-2">DataProtectionControl</a></span>]
-interface <dfn data-export="" data-dfn-type="interface" id="dom-adpcevent" data-idl="interface" data-title="AdpcEvent" data-dfn-for="AdpcEvent" class="idlID" tabindex="0" aria-haspopup="dialog"><code>AdpcEvent</code></dfn> {<span data-idl="" class="idlAttribute" id="idl-def-adpcevent-userdecisions" data-title="userDecisions" data-dfn-for="AdpcEvent">
+[<span class="extAttr"><a data-type="extended-attribute" href="https://webidl.spec.whatwg.org/#Exposed">Exposed</a>=<a href="#dfn-dataprotectioncontrol" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-dataprotectioncontrol-1">DataProtectionControl</a></span>]
+interface <dfn data-export="" data-dfn-type="interface" id="dom-adpcevent" data-idl="interface" data-title="AdpcEvent" data-dfn-for="" class="idlID" tabindex="0" aria-haspopup="dialog"><code>AdpcEvent</code></dfn> {<span data-idl="" class="idlAttribute" id="idl-def-adpcevent-userdecisions" data-title="userDecisions" data-dfn-for="AdpcEvent">
   readonly attribute<span class="idlType"> <a href="#dom-userdecisionsobject" class="internalDFN" data-link-type="idl" id="ref-for-dom-userdecisionsobject-2"><code>UserDecisionsObject</code></a></span> <dfn data-export="" data-dfn-type="attribute" id="dom-adpcevent-userdecisions" data-idl="attribute" data-title="userDecisions" data-dfn-for="AdpcEvent" data-type="UserDecisionsObject" data-lt="userDecisions" data-local-lt="AdpcEvent.userDecisions" class="idlName" tabindex="0" aria-haspopup="dialog"><code>userDecisions</code></dfn>;</span>
 };</span><span data-idl="" class="idlInterface" id="idl-def-userdecisionsobject" data-title="UserDecisionsObject">
 
-[<span class="extAttr"><a data-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed">Exposed</a>=<a href="#dfn-dataprotectioncontrol" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-dataprotectioncontrol-3">DataProtectionControl</a></span>]
-interface <dfn data-export="" data-dfn-type="interface" id="dom-userdecisionsobject" data-idl="interface" data-title="UserDecisionsObject" data-dfn-for="UserDecisionsObject" class="idlID" tabindex="0" aria-haspopup="dialog"><code>UserDecisionsObject</code></dfn> {<span data-idl="" class="idlAttribute" id="idl-def-userdecisionsobject-consent" data-title="consent" data-dfn-for="UserDecisionsObject">
+[<span class="extAttr"><a data-type="extended-attribute" href="https://webidl.spec.whatwg.org/#Exposed">Exposed</a>=<a href="#dfn-dataprotectioncontrol" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-dataprotectioncontrol-2">DataProtectionControl</a></span>]
+interface <dfn data-export="" data-dfn-type="interface" id="dom-userdecisionsobject" data-idl="interface" data-title="UserDecisionsObject" data-dfn-for="" class="idlID" tabindex="0" aria-haspopup="dialog"><code>UserDecisionsObject</code></dfn> {<span data-idl="" class="idlAttribute" id="idl-def-userdecisionsobject-consent" data-title="consent" data-dfn-for="UserDecisionsObject">
   readonly attribute<span class="idlType"> <a data-type="interface" href="https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#domstringlist">DOMStringList</a>?</span> <dfn data-export="" data-dfn-type="attribute" id="dom-userdecisionsobject-consent" data-idl="attribute" data-title="consent" data-dfn-for="UserDecisionsObject" data-type="DOMStringList" data-lt="consent" data-local-lt="UserDecisionsObject.consent" class="idlName" tabindex="0" aria-haspopup="dialog"><code>consent</code></dfn>;</span><span data-idl="" class="idlAttribute" id="idl-def-userdecisionsobject-withdraw" data-title="withdraw" data-dfn-for="UserDecisionsObject">
   readonly attribute<span class="idlType"> <a data-type="interface" href="https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#domstringlist">DOMStringList</a>?</span> <dfn data-export="" data-dfn-type="attribute" id="dom-userdecisionsobject-withdraw" data-idl="attribute" data-title="withdraw" data-dfn-for="UserDecisionsObject" data-type="DOMStringList" data-lt="withdraw" data-local-lt="UserDecisionsObject.withdraw" class="idlName" tabindex="0" aria-haspopup="dialog"><code>withdraw</code></dfn>;</span><span data-idl="" class="idlAttribute" id="idl-def-userdecisionsobject-object" data-title="object" data-dfn-for="UserDecisionsObject">
   readonly attribute<span class="idlType"> <a data-type="interface" href="https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#domstringlist">DOMStringList</a>?</span> <dfn data-export="" data-dfn-type="attribute" id="dom-userdecisionsobject-object" data-idl="attribute" data-title="_object" data-dfn-for="UserDecisionsObject" data-type="DOMStringList" data-lt="object" data-local-lt="UserDecisionsObject.object" class="idlName" tabindex="0" aria-haspopup="dialog"><code>_object</code></dfn>;</span>
 };</span><span data-idl="" class="idlInterface" id="idl-def-navigator-partial-1" data-title="Navigator">
 
 partial interface <a data-idl="partial" data-link-type="interface" data-title="Navigator" class="idlID" data-dfn-for="Navigator" data-type="interface" href="https://html.spec.whatwg.org/multipage/system-state.html#navigator">Navigator</a> {<span data-idl="" class="idlAttribute" id="idl-def-navigator-dataprotectioncontrol" data-title="dataProtectionControl" data-dfn-for="Navigator">
-  [<span class="extAttr"><a data-type="extended-attribute" href="https://heycam.github.io/webidl/#SameObject">SameObject</a></span>] readonly attribute<span class="idlType"> <a href="#dfn-dataprotectioncontrol" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-dataprotectioncontrol-4">DataProtectionControl</a></span> <dfn data-export="" data-dfn-type="attribute" id="dom-navigator-dataprotectioncontrol" data-idl="attribute" data-title="dataProtectionControl" data-dfn-for="Navigator" data-type="DataProtectionControl" data-lt="dataProtectionControl" data-local-lt="Navigator.dataProtectionControl" class="idlName" tabindex="0" aria-haspopup="dialog"><code>dataProtectionControl</code></dfn>;</span>
+  [<span class="extAttr"><a data-type="extended-attribute" href="https://webidl.spec.whatwg.org/#SameObject">SameObject</a></span>] readonly attribute<span class="idlType"> <a href="#dfn-dataprotectioncontrol" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-dataprotectioncontrol-3">DataProtectionControl</a></span> <dfn data-export="" data-dfn-type="attribute" id="dom-navigator-dataprotectioncontrol" data-idl="attribute" data-title="dataProtectionControl" data-dfn-for="Navigator" data-type="DataProtectionControl" data-lt="dataProtectionControl" data-local-lt="Navigator.dataProtectionControl" class="idlName" tabindex="0" aria-haspopup="dialog"><code>dataProtectionControl</code></dfn>;</span>
 };</span></code></pre>
         <p>
           The <dfn id="dfn-dataprotectioncontrol" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">dataProtectionControl</dfn> interface enables a web page to request consent from the user and learn about their data protection decisions.
@@ -1099,7 +1080,7 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
       <section class="informative" id="concept">
         <h3 id="x9-1-concept"><bdi class="secno">9.1 </bdi>Concept<a class="self-link" aria-label="§" href="#concept"></a></h3><p><em>This section is non-normative.</em></p>
         <p>
-          Users regularly feel overwhelmed by consent requests (‘consent fatigue’). Enabeling trusted parties to suggest including or excluding certain consent requests could allow users and user agents to determine which consent requests to prioritise or automatically consent to, and which consent requests to ignore or automatically reject. Websites, groups of controllers or consumer groups may promote inclusion lists, for example of websites providing quality journalism or for the purpose of informing users about regular discounts.
+          Users regularly feel overwhelmed by consent requests (‘consent fatigue’). Enabling trusted parties to suggest including or excluding certain consent requests could allow users and user agents to determine which consent requests to prioritise or automatically consent to, and which consent requests to ignore or automatically reject. Websites, groups of controllers or consumer groups may promote inclusion lists, for example of websites providing quality journalism or for the purpose of informing users about regular discounts.
         </p>
         <p>
           The user agent may allow to import such third party <a data-link-type="dfn" href="#dfn-bulk-consent-requests-list" class="internalDFN" id="ref-for-dfn-bulk-consent-requests-list-1">bulk consent requests lists</a>, which may be made available as a file or as a continuously updated online resource. The discovery and exchange mechanisms used are beyond the scope of this specification.
@@ -1196,7 +1177,7 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
         Users may use various forms of communicating consent, withdrawal of consent, or objections — the user could send an email, letter, or click a button on a website. Independent of the communication channel, the most recent communication would usually override the previous exercise of rights. As the ADPC signal would typically be communicated in every interaction with a website, it would quickly override previous expressions through any other communication, like consent banners, emails or letters.
       </p>
       <p>
-        If the ADPC signal is sent in the same transaction as another signal with related meaning (e.g. when clicking an “agree” button on a website, or sending another signal such as a <cite><a class="bibref" data-link-type="biblio" href="#bib-tracking-dnt" title="Tracking Preference Expression (DNT)">DNT</a></cite> or <a href="https://globalprivacycontrol.org/">Sec-GPC</a> HTTP header), any non-contradicting communication can be interpreted combinedly without problem. Any expressions of consent that are in conflict with each other will not be “unambiguous” as required by Article 4(7) GDPR, and should thus be interpreted as a lack of valid consent.
+        If the ADPC signal is sent in the same transaction as another signal with related meaning (e.g. when clicking an “agree” button on a website, or sending another signal such as a <cite><a class="bibref" data-link-type="biblio" href="#bib-tracking-dnt" title="Tracking Preference Expression (DNT)">DNT</a></cite> or <a href="https://globalprivacycontrol.org/">Sec-GPC</a> HTTP header), any non-contradicting communication can be interpreted in combination without problem. Any expressions of consent that are in conflict with each other will not be “unambiguous” as required by Article 4(7) GDPR, and should thus be interpreted as a lack of valid consent.
       </p>
     </section>
     <section class="informative" id="privacy-considerations">
@@ -1232,7 +1213,7 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
         <section id="misplaced-trust">
           <h4 id="x11-2-1-misplaced-trust"><bdi class="secno">11.2.1 </bdi>Misplaced trust<a class="self-link" aria-label="§" href="#misplaced-trust"></a></h4>
           <p>
-            First of all, this mechanism cannot prevent websites from giving false or incomplete information, or simply disrespecting the user’s decisions. A false pretense of control may erode trust in the system. While this might equally be the case without use of this mechanism, the presentation through the web browser interface, which is generally more trusted than the website being visited, may give a false sense that decisions are enforced by the user agent, as is the case with permission requests for e.g. microphone access.
+            First of all, this mechanism cannot prevent websites from giving false or incomplete information, or simply disrespecting the user’s decisions. A false pretence of control may erode trust in the system. While this might equally be the case without use of this mechanism, the presentation through the web browser interface, which is generally more trusted than the website being visited, may give a false sense that decisions are enforced by the user agent, as is the case with permission requests for e.g. microphone access.
           </p>
         </section>
         <section id="tracking">
@@ -1244,13 +1225,13 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
             However, a limited ability to do <em>first-party tracking</em> is unavoidable given that users express their decisions, which will necessarily convey some information. The user’s data protection decisions, simply by being different from those of other persons, could be used to help re-identify them on subsequent visits.
           </p>
           <p>
-            The situation here is similar to that of first-party cookies, although it is made less impactful because the requests are visible to the user, and the responses are made by the user rather than set arbitrarily by the website. Moreover, the entropy of user decisions is likely very low: if a website asks four consent questions, these provide at most four bits of information, but in practice much less because users do not choose their responses perfectly at random. Especially if a website makes, say, fourty consent requests, users are unlikely to make fourty independent decisions: rejecting or accepting all requests at once is a common response.
+            The situation here is similar to that of first-party cookies, although it is made less impactful because the requests are visible to the user, and the responses are made by the user rather than set arbitrarily by the website. Moreover, the entropy of user decisions is likely very low: if a website asks four consent questions, these provide at most four bits of information, but in practice much less because users do not choose their responses perfectly at random. Especially if a website makes, say, forty consent requests, users are unlikely to make forty independent decisions: rejecting or accepting all requests at once is a common response.
           </p>
           <p>
             Besides the individual users’ responses, without further precautions the <a data-link-type="dfn" href="#dfn-request-identifier" class="internalDFN" id="ref-for-dfn-request-identifier-5">request identifiers</a> also risk to be usable as persistent tracking vectors. A malicious website could, rather than having a static list of consent requests, customise the request identifiers for each user to recognise the user again (if they consented) during a subsequent visit. Various approaches could help prevent this form of tracking. For example, user agents could refrain from transmitting the consent header value along with the first HTTP request to a website in a new session, in order to first verify whether the website still makes the same requests as before.
           </p>
           <p>
-            Even though the mechanism does not enable cross-website tracking, and is less impactful than first-party cookies, the possibility to track users would need to be much less than with cookies, so that users can trust they keep their data protection decisions when removing their cookies. To this end, mitigations should be developed, and implementers should evaluate their abilities to limit entropy and may make trade-offs between efficiency and anonimity.
+            Even though the mechanism does not enable cross-website tracking, and is less impactful than first-party cookies, the possibility to track users would need to be much less than with cookies, so that users can trust they keep their data protection decisions when removing their cookies. To this end, mitigations should be developed, and implementers should evaluate their abilities to limit entropy and may make trade-offs between efficiency and anonymity.
           </p>
         </section>
         <section id="third-party-scripts">
@@ -1293,10 +1274,10 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
 
 <section id="references" class="appendix"><h2 id="b-references"><bdi class="secno">B. </bdi>References<a class="self-link" aria-label="§" href="#references"></a></h2><section id="normative-references">
     <h3 id="b-1-normative-references"><bdi class="secno">B.1 </bdi>Normative references<a class="self-link" aria-label="§" href="#normative-references"></a></h3>
-    <dl class="bibliography"><dt id="bib-dom">[dom]</dt><dd><a href="https://dom.spec.whatwg.org/"><cite>DOM Standard</cite></a>. Anne van Kesteren.  WHATWG. Living Standard. URL: <a href="https://dom.spec.whatwg.org/">https://dom.spec.whatwg.org/</a></dd><dt id="bib-html">[html]</dt><dd><a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Anne van Kesteren; Domenic Denicola; Ian Hickson; Philip Jägenstedt; Simon Pieters.  WHATWG. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a></dd><dt id="bib-rfc2119">[RFC2119]</dt><dd><a href="https://datatracker.ietf.org/doc/html/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://datatracker.ietf.org/doc/html/rfc2119">https://datatracker.ietf.org/doc/html/rfc2119</a></dd><dt id="bib-rfc8174">[RFC8174]</dt><dd><a href="https://datatracker.ietf.org/doc/html/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://datatracker.ietf.org/doc/html/rfc8174">https://datatracker.ietf.org/doc/html/rfc8174</a></dd><dt id="bib-uri">[URI]</dt><dd><a href="https://datatracker.ietf.org/doc/html/rfc3986"><cite>Uniform Resource Identifier (URI): Generic Syntax</cite></a>. T. Berners-Lee; R. Fielding; L. Masinter.  IETF. January 2005. Internet Standard. URL: <a href="https://datatracker.ietf.org/doc/html/rfc3986">https://datatracker.ietf.org/doc/html/rfc3986</a></dd><dt id="bib-url">[url]</dt><dd><a href="https://url.spec.whatwg.org/"><cite>URL Standard</cite></a>. Anne van Kesteren.  WHATWG. Living Standard. URL: <a href="https://url.spec.whatwg.org/">https://url.spec.whatwg.org/</a></dd><dt id="bib-webidl">[WebIDL]</dt><dd><a href="https://heycam.github.io/webidl/"><cite>Web IDL</cite></a>. Boris Zbarsky.  W3C. 15 December 2016. W3C Editor's Draft. URL: <a href="https://heycam.github.io/webidl/">https://heycam.github.io/webidl/</a></dd></dl>
+    <dl class="bibliography"><dt id="bib-dom">[dom]</dt><dd><a href="https://dom.spec.whatwg.org/"><cite>DOM Standard</cite></a>. Anne van Kesteren.  WHATWG. Living Standard. URL: <a href="https://dom.spec.whatwg.org/">https://dom.spec.whatwg.org/</a></dd><dt id="bib-html">[html]</dt><dd><a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Anne van Kesteren; Domenic Denicola; Ian Hickson; Philip Jägenstedt; Simon Pieters.  WHATWG. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a></dd><dt id="bib-rfc2119">[RFC2119]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a></dd><dt id="bib-rfc8174">[RFC8174]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a></dd><dt id="bib-uri">[URI]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc3986"><cite>Uniform Resource Identifier (URI): Generic Syntax</cite></a>. T. Berners-Lee; R. Fielding; L. Masinter.  IETF. January 2005. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3986">https://www.rfc-editor.org/rfc/rfc3986</a></dd><dt id="bib-url">[url]</dt><dd><a href="https://url.spec.whatwg.org/"><cite>URL Standard</cite></a>. Anne van Kesteren.  WHATWG. Living Standard. URL: <a href="https://url.spec.whatwg.org/">https://url.spec.whatwg.org/</a></dd><dt id="bib-webidl">[WEBIDL]</dt><dd><a href="https://webidl.spec.whatwg.org/"><cite>Web IDL Standard</cite></a>. Edgar Chen; Timothy Gu.  WHATWG. Living Standard. URL: <a href="https://webidl.spec.whatwg.org/">https://webidl.spec.whatwg.org/</a></dd></dl>
   </section><section id="informative-references">
     <h3 id="b-2-informative-references"><bdi class="secno">B.2 </bdi>Informative references<a class="self-link" aria-label="§" href="#informative-references"></a></h3>
-    <dl class="bibliography"><dt id="bib-csp2">[CSP2]</dt><dd><a href="https://www.w3.org/TR/CSP2/"><cite>Content Security Policy Level 2</cite></a>. Mike West; Adam Barth; Daniel Veditz.  W3C. 15 December 2016. W3C Recommendation. URL: <a href="https://www.w3.org/TR/CSP2/">https://www.w3.org/TR/CSP2/</a></dd><dt id="bib-permissions">[Permissions]</dt><dd><a href="https://www.w3.org/TR/permissions/"><cite>Permissions</cite></a>. Mounir Lamouri; Marcos Caceres; Jeffrey Yasskin.  W3C. 24 June 2021. W3C Working Draft. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a></dd><dt id="bib-sri">[SRI]</dt><dd><a href="https://www.w3.org/TR/SRI/"><cite>Subresource Integrity</cite></a>. Devdatta Akhawe; Frederik Braun; Francois Marier; Joel Weinberger.  W3C. 23 June 2016. W3C Recommendation. URL: <a href="https://www.w3.org/TR/SRI/">https://www.w3.org/TR/SRI/</a></dd><dt id="bib-tracking-dnt">[tracking-dnt]</dt><dd><a href="https://www.w3.org/TR/tracking-dnt/"><cite>Tracking Preference Expression (DNT)</cite></a>. Roy Fielding; David Singer.  W3C. 17 January 2019. W3C Note. URL: <a href="https://www.w3.org/TR/tracking-dnt/">https://www.w3.org/TR/tracking-dnt/</a></dd></dl>
+    <dl class="bibliography"><dt id="bib-csp2">[CSP2]</dt><dd><a href="https://www.w3.org/TR/CSP2/"><cite>Content Security Policy Level 2</cite></a>. Mike West; Adam Barth; Daniel Veditz.  W3C. 15 December 2016. W3C Recommendation. URL: <a href="https://www.w3.org/TR/CSP2/">https://www.w3.org/TR/CSP2/</a></dd><dt id="bib-permissions">[Permissions]</dt><dd><a href="https://www.w3.org/TR/permissions/"><cite>Permissions</cite></a>. Marcos Caceres; Mike Taylor; Jeffrey Yasskin.  W3C. 17 October 2021. W3C Working Draft. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a></dd><dt id="bib-sri">[SRI]</dt><dd><a href="https://www.w3.org/TR/SRI/"><cite>Subresource Integrity</cite></a>. Devdatta Akhawe; Frederik Braun; Francois Marier; Joel Weinberger.  W3C. 23 June 2016. W3C Recommendation. URL: <a href="https://www.w3.org/TR/SRI/">https://www.w3.org/TR/SRI/</a></dd><dt id="bib-tracking-dnt">[tracking-dnt]</dt><dd><a href="https://www.w3.org/TR/tracking-dnt/"><cite>Tracking Preference Expression (DNT)</cite></a>. Roy Fielding; David Singer.  W3C. 17 January 2019. W3C Note. URL: <a href="https://www.w3.org/TR/tracking-dnt/">https://www.w3.org/TR/tracking-dnt/</a></dd></dl>
   </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
   </p><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-request-consent" aria-label="Links in this document to definition: request consent">
@@ -1529,8 +1510,10 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
+    <li>
+    <a href="#ref-for-dom-dataprotectioncontrol-1" title="§ 8.2 Giving and withdrawing consent, and objecting to processing">§ 8.2 Giving and withdrawing consent, and objecting to processing</a> 
+  </li>
+  </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dom-dataprotectioncontrol-request" aria-label="Links in this document to definition: request">
       <span class="caret"></span>
       <div>
@@ -1622,9 +1605,7 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-dataprotectioncontrol-1" title="§ 8.2 Giving and withdrawing consent, and objecting to processing">§ 8.2 Giving and withdrawing consent, and objecting to processing</a> 
-  </li><li>
-    <a href="#ref-for-dfn-dataprotectioncontrol-2" title="§ 8.3 Interface definition">§ 8.3 Interface definition</a> <a href="#ref-for-dfn-dataprotectioncontrol-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-dataprotectioncontrol-4" title="Reference 3">(3)</a> 
+    <a href="#ref-for-dfn-dataprotectioncontrol-1" title="§ 8.3 Interface definition">§ 8.3 Interface definition</a> <a href="#ref-for-dfn-dataprotectioncontrol-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-dataprotectioncontrol-3" title="Reference 3">(3)</a> 
   </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-request" aria-label="Links in this document to definition: request()">
