@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 26.16.1">
+<meta name="generator" content="ReSpec 31.0.11">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -92,7 +92,6 @@ dfn{cursor:pointer}
 25%{transform:scale(1.25,1.25);opacity:.75}
 100%{transform:scale(1,1)}
 }
-.hljs{background:0 0!important}
 :is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
 dfn{font-weight:700}
 a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
@@ -132,14 +131,16 @@ details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin 
 details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
 details.respec-tests-details>ul{width:100%;margin-top:-.3em}
 details.respec-tests-details>li{padding-left:1em}
-a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
-h2,h3,h4,h5,h6{position:relative}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
-:is(h2,h3,h4,h5,h6)>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
-:is(h2,h3,h4,h5,h6)>a.self-link::before{content:"§";display:block}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
 @media (max-width:767px){
 dd{margin-left:0}
-:is(h2,h3,h4,h5,h6)>a.self-link{left:auto;top:auto}
 }
 @media print{
 .removeOnSave{display:none}
@@ -228,29 +229,31 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "company": "Sustainable Computing Lab"
     }
   ],
-  "publishISODate": "2021-10-22T00:00:00.000Z",
-  "generatedSubtitle": "Unofficial Draft 22 October 2021"
+  "publishISODate": "2022-03-07T00:00:00.000Z",
+  "generatedSubtitle": "Unofficial Draft 07 March 2022"
 }</script>
-<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-UD"></head>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-UD"></head>
   <body class="h-entry" data-cite="WEBIDL HTML INFRA URL WEBIDL DOM FETCH"><div class="head">
-     <h1 id="title" class="title">Advanced Data Protection Control (ADPC)</h1>
     
-    <h2>Unofficial Draft <time class="dt-published" datetime="2021-10-22">22 October 2021</time></h2>
+    <h1 id="title" class="title">Advanced Data Protection Control (ADPC)</h1> 
+    <p id="w3c-state">Unofficial Draft <time class="dt-published" datetime="2022-03-07">07 March 2022</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
         
+        <dt>Latest published version:</dt><dd>
+                <a href="https://www.w3.org/data-protection-control/">https://www.w3.org/data-protection-control/</a>
+              </dd>
         <dt>Latest editor's draft:</dt><dd><a href="https://www.dataprotectioncontrol.org/spec/">https://www.dataprotectioncontrol.org/spec/</a></dd>
         <dt>History:</dt><dd>
-        <a href="https://github.com/Data-Protection-Control/ADPC/commits/main">Commit history</a>
-      </dd>
+                    <a href="https://github.com/Data-Protection-Control/ADPC/commits/main">Commit history</a>
+                  </dd>
         
         
         
         
         
-        <dt>Editors:</dt>
-        <dd class="editor p-author h-card vcard" data-editor-id="73624">
+        <dt>Editors:</dt><dd class="editor p-author h-card vcard" data-editor-id="73624">
     <span class="p-name fn">Gerben</span> (<a class="p-org org h-org" href="https://noyb.eu">noyb</a>)
   </dd><dd class="editor p-author h-card vcard" data-editor-id="110909">
     <span class="p-name fn">Soheil Human</span> (<a class="p-org org h-org" href="http://sustainablecomputing.eu">Sustainable Computing Lab</a>)
@@ -273,6 +276,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <a href="https://github.com/Data-Protection-Control/ADPC/issues/new/choose">new issue</a>,
         <a href="https://github.com/Data-Protection-Control/ADPC/issues/">open issues</a>)
       </dd>
+        
         <dt>More information</dt><dd>
     <a href="https://www.dataprotectioncontrol.org">dataprotectioncontrol.org</a>
   </dd>
@@ -280,10 +284,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     </details>
     
     
-    
     <p class="copyright">
       Copyright ©
-      2021
+      2022
       the document editors/authors.
       Text is available under the
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International Public License</a>; additional terms may apply.
@@ -301,8 +304,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 
 
-    <section class="informative" id="introduction">
-      <h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a></h2><p><em>This section is non-normative.</em></p>
+    <section class="informative" id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
+      
       <p>
         Legal frameworks such as the European Union’s General Data Protection Regulation (GDPR) and ePrivacy Directive define rights and obligations around the processing of personal data. The starting position of the GDPR is that processing of personal data is only lawful if it has an appropriate legal basis; one basis being that <i>“the data subject has given consent to the processing of his or her personal data for one or more specific purposes”</i> (point (a) of Article 6(1) GDPR). Similarly, the ePrivacy Directive (in Article 5(3)) requires the user’s consent when any data is stored on or retrieved from terminal equipment beyond what is strictly necessary. Moreover, when a data controller relies on legitimate interest as the legal basis for direct marketing, the user has an absolute right to object under Article&nbsp;21(2) GDPR.
       </p>
@@ -336,8 +339,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 
 
-    <section class="informative" id="technical-overview">
-      <h2 id="x2-technical-overview"><bdi class="secno">2. </bdi>Technical overview<a class="self-link" aria-label="§" href="#technical-overview"></a></h2><p><em>This section is non-normative.</em></p>
+    <section class="informative" id="technical-overview"><div class="header-wrapper"><h2 id="x2-technical-overview"><bdi class="secno">2. </bdi>Technical overview</h2><a class="self-link" href="#technical-overview" aria-label="Permalink for Section 2."></a></div><p><em>This section is non-normative.</em></p>
+      
       <p>
         The protocol described in this document interacts between the website and the user agent (i.e. the browser). The website provides the user agent with a machine-readable “<a data-link-type="dfn" href="#dfn-consent-requests-list" class="internalDFN" id="ref-for-dfn-consent-requests-list-1">consent requests list</a>” that specifies the data processing purposes for which it requests the user’s consent. The user agent responds the user’s decisions to the website. The current specification defines two technical paths for these interactions:
       </p>
@@ -359,14 +362,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         The user’s response is presented to the website by listing the identifiers of the requests they consent to. In the HTTP-based approach, this list is sent in the <code>ADPC</code> HTTP header in a subsequent HTTP request, while in the JavaScript-based approach, the list is the final return value of the DOM interface.
       </p>
       <p>
-        In the subsequent sections, the communication protocol is defined in detail. First come examples (<a href="#examples" class="sec-ref">§&nbsp;<bdi class="secno">3. </bdi>Example</a>) and relevant definitions (<a href="#definitions" class="sec-ref">§&nbsp;<bdi class="secno">4. </bdi>Definitions</a>). Then <a href="#signals" class="sec-ref">§&nbsp;<bdi class="secno">6. </bdi>Signals</a> specifies the messages that the two sides exchange, defining the meaning of each. The two sections following it detail how these messages are technically conveyed via either the HTTP-based (<a href="#http-interaction" class="sec-ref">§&nbsp;<bdi class="secno">7. </bdi>HTTP-based interaction</a>) or JavaScript-based (<a href="#javascript-interaction" class="sec-ref">§&nbsp;<bdi class="secno">8. </bdi>JavaScript-based interaction</a>) approach.
+        In the subsequent sections, the communication protocol is defined in detail. First come examples (<a href="#examples" data-matched-text="[[[#examples]]]" class="sec-ref"><bdi class="secno">3. </bdi>Example</a>) and relevant definitions (<a href="#definitions" data-matched-text="[[[#definitions]]]" class="sec-ref"><bdi class="secno">4. </bdi>Definitions</a>). Then <a href="#signals" data-matched-text="[[[#signals]]]" class="sec-ref"><bdi class="secno">6. </bdi>Signals</a> specifies the messages that the two sides exchange, defining the meaning of each. The two sections following it detail how these messages are technically conveyed via either the HTTP-based (<a href="#http-interaction" data-matched-text="[[[#http-interaction]]]" class="sec-ref"><bdi class="secno">7. </bdi>HTTP-based interaction</a>) or JavaScript-based (<a href="#javascript-interaction" data-matched-text="[[[#javascript-interaction]]]" class="sec-ref"><bdi class="secno">8. </bdi>JavaScript-based interaction</a>) approach.
       </p>
     </section>
 
 
 
-    <section class="informative" id="example">
-      <h2 id="examples"><bdi class="secno">3. </bdi>Example<a class="self-link" aria-label="§" href="#examples"></a></h2><p><em>This section is non-normative.</em></p>
+    <section class="informative" id="example"><div class="header-wrapper"><h2 id="examples"><bdi class="secno">3. </bdi>Example</h2><a class="self-link" href="#examples" aria-label="Permalink for Section 3."></a></div><p><em>This section is non-normative.</em></p>
+      
       <aside class="example" id="example-full-http"><div class="marker">
     <a class="self-link" href="#example-full-http">Example<bdi> 1</bdi></a><span class="example-title">: Full example, using HTTP-based interaction</span>
   </div>
@@ -414,8 +417,8 @@ ADPC: withdraw=*, consent=cookies
 
 
 
-    <section id="definitions-0">
-      <h2 id="definitions"><bdi class="secno">4. </bdi>Definitions<a class="self-link" aria-label="§" href="#definitions"></a></h2>
+    <section id="definitions-0"><div class="header-wrapper"><h2 id="definitions"><bdi class="secno">4. </bdi>Definitions</h2><a class="self-link" href="#definitions" aria-label="Permalink for Section 4."></a></div>
+      
       <p>
         This document touches on data protection regulations as well as technical specifications, which tend to use very different concepts and terminology. In this document, the following terms are used to map data protection concepts into a technical specification:
       </p>
@@ -468,10 +471,10 @@ ADPC: withdraw=*, consent=cookies
 
 
 
-    <section id="scope-0">
-      <h2 id="scope"><bdi class="secno">5. </bdi>Scope<a class="self-link" aria-label="§" href="#scope"></a></h2>
-      <section id="personal-scope">
-        <h3 id="x5-1-personal-scope"><bdi class="secno">5.1 </bdi>Personal scope<a class="self-link" aria-label="§" href="#personal-scope"></a></h3>
+    <section id="scope-0"><div class="header-wrapper"><h2 id="scope"><bdi class="secno">5. </bdi>Scope</h2><a class="self-link" href="#scope" aria-label="Permalink for Section 5."></a></div>
+      
+      <section id="personal-scope"><div class="header-wrapper"><h3 id="x5-1-personal-scope"><bdi class="secno">5.1 </bdi>Personal scope</h3><a class="self-link" href="#personal-scope" aria-label="Permalink for Section 5.1"></a></div>
+        
         <p>
           The same person may or may not be recognisable to the website on a subsequent visit (for example when the user deletes stored IDs or uses another device or account), and may thus be considered a new user from the website’s perspective.
         </p>
@@ -489,8 +492,8 @@ ADPC: withdraw=*, consent=cookies
           </p>
         </aside>
       </section>
-        <section id="material-scope">
-        <h3 id="x5-2-material-scope"><bdi class="secno">5.2 </bdi>Material scope<a class="self-link" aria-label="§" href="#material-scope"></a></h3>
+        <section id="material-scope"><div class="header-wrapper"><h3 id="x5-2-material-scope"><bdi class="secno">5.2 </bdi>Material scope</h3><a class="self-link" href="#material-scope" aria-label="Permalink for Section 5.2"></a></div>
+        
         <p>
           The signal expressing the user’s exercise of rights includes any processing of personal data or information based on consent (Article 6(1)(a) GDPR and article 5(3) ePrivacy Directive) or for direct marketing purposes (Article 6(1)(f) and 21(2) GDPR and Article 13(1) ePrivacy Directive).
         </p>
@@ -502,8 +505,8 @@ ADPC: withdraw=*, consent=cookies
           </p>
         </aside>
       </section>
-      <section id="territorial-scope">
-        <h3 id="x5-3-territorial-scope"><bdi class="secno">5.3 </bdi>Territorial scope<a class="self-link" aria-label="§" href="#territorial-scope"></a></h3>
+      <section id="territorial-scope"><div class="header-wrapper"><h3 id="x5-3-territorial-scope"><bdi class="secno">5.3 </bdi>Territorial scope</h3><a class="self-link" href="#territorial-scope" aria-label="Permalink for Section 5.3"></a></div>
+        
         <p>
           The website may determine the territorial scope where it provides support for this specification. Limited support may be expressed by not including the <code>Link</code> header (or the equivalent <code>&lt;link&gt;</code> element) in a transaction.
         </p>
@@ -517,13 +520,13 @@ ADPC: withdraw=*, consent=cookies
 
 
 
-    <section id="signals-0">
-      <h2 id="signals"><bdi class="secno">6. </bdi>Signals<a class="self-link" aria-label="§" href="#signals"></a></h2>
+    <section id="signals-0"><div class="header-wrapper"><h2 id="signals"><bdi class="secno">6. </bdi>Signals</h2><a class="self-link" href="#signals" aria-label="Permalink for Section 6."></a></div>
+      
       <p>
         Regardless whether the protocol is used via the HTTP-based or JavaScript-based approach, conceptually the same messages are exchanged between website and user agent. This section describes the messages and their meaning.
       </p>
-      <section id="requesting-consent">
-        <h3 id="x6-1-requesting-consent"><bdi class="secno">6.1 </bdi>Requesting consent<a class="self-link" aria-label="§" href="#requesting-consent"></a></h3>
+      <section id="requesting-consent"><div class="header-wrapper"><h3 id="x6-1-requesting-consent"><bdi class="secno">6.1 </bdi>Requesting consent</h3><a class="self-link" href="#requesting-consent" aria-label="Permalink for Section 6.1"></a></div>
+        
         <p>
           The typical communication flow starts with the website requesting its visitor for consent to specific data processing purposes. The website can <dfn id="dfn-request-consent" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">request consent</dfn> from the user for zero or more processing purposes by presenting the user agent a <a data-link-type="dfn" href="#dfn-consent-requests-list" class="internalDFN" id="ref-for-dfn-consent-requests-list-2">consent requests list</a>.
         </p>
@@ -632,8 +635,8 @@ ADPC: withdraw=*, consent=cookies
           </p>
         </aside>
       </section>
-      <section id="giving-consent">
-        <h3 id="x6-2-giving-consent"><bdi class="secno">6.2 </bdi>Giving consent<a class="self-link" aria-label="§" href="#giving-consent"></a></h3>
+      <section id="giving-consent"><div class="header-wrapper"><h3 id="x6-2-giving-consent"><bdi class="secno">6.2 </bdi>Giving consent</h3><a class="self-link" href="#giving-consent" aria-label="Permalink for Section 6.2"></a></div>
+        
         <p>
           To <dfn id="dfn-give-consent" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">give consent</dfn> to zero or more specific processing purposes, the user agent presents the website with a list of the corresponding identifiers.
         </p>
@@ -641,7 +644,7 @@ ADPC: withdraw=*, consent=cookies
     <a class="self-link" href="#example-giving-consent">Example<bdi> 8</bdi></a>
   </div>
           <p>
-            From the list in <a href="#example-consent-requests-list" class="box-ref">Example<bdi> 5</bdi></a>, assume the user consents to the first two purposes. The user agents passes the list of corresponding identifiers, <code>q1analytics</code> and <code>q2recommendation</code>. In the HTTP approach this could be expressed by sending this header:
+            From the list in <a href="#example-consent-requests-list" data-matched-text="[[[#example-consent-requests-list]]]" class="box-ref">Example<bdi> 5</bdi></a>, assume the user consents to the first two purposes. The user agents passes the list of corresponding identifiers, <code>q1analytics</code> and <code>q2recommendation</code>. In the HTTP approach this could be expressed by sending this header:
           </p>
           <pre class="http" aria-busy="false"><code class="hljs">ADPC: consent="q1analytics q2recommendation"</code></pre>
           <p>
@@ -652,8 +655,8 @@ ADPC: withdraw=*, consent=cookies
           For legal validity, the user agent <em class="rfc2119">MUST NOT</em> give consent without properly presenting the requests to the user and without freely given, specific, informed and unambiguous affirmative indication by the user. The user agent can remember the user’s previously given consent and repeat it on subsequent repetitions of the same request.
         </p>
       </section>
-      <section id="withdrawing-consent">
-        <h3 id="x6-3-withdrawing-consent"><bdi class="secno">6.3 </bdi>Withdrawing consent<a class="self-link" aria-label="§" href="#withdrawing-consent"></a></h3>
+      <section id="withdrawing-consent"><div class="header-wrapper"><h3 id="x6-3-withdrawing-consent"><bdi class="secno">6.3 </bdi>Withdrawing consent</h3><a class="self-link" href="#withdrawing-consent" aria-label="Permalink for Section 6.3"></a></div>
+        
         <p>
           The user may <dfn id="dfn-withdraw-consent" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">withdraw consent</dfn> that was previously given; the consent is represented by the identifier that was used to request it.
         </p>
@@ -664,7 +667,7 @@ ADPC: withdraw=*, consent=cookies
     <a class="self-link" href="#example-9">Example<bdi> 9</bdi></a>
   </div>
           <p>
-            After having previously given consent as described in <a href="#example-giving-consent" class="box-ref">Example<bdi> 8</bdi></a>, assume the user expresses they want to withdraw their consent to data processing for the purpose of analytics, possibly by unchecking the corresponding checkbox in their browser. The user agent passes a list containing the corresponding identifier, <code>q1analytics</code>. In the HTTP approach this could be expressed by sending this header:
+            After having previously given consent as described in <a href="#example-giving-consent" data-matched-text="[[[#example-giving-consent]]]" class="box-ref">Example<bdi> 8</bdi></a>, assume the user expresses they want to withdraw their consent to data processing for the purpose of analytics, possibly by unchecking the corresponding checkbox in their browser. The user agent passes a list containing the corresponding identifier, <code>q1analytics</code>. In the HTTP approach this could be expressed by sending this header:
           </p>
           <pre class="http" aria-busy="false"><code class="hljs">ADPC: withdraw=q1analytics</code></pre>
           <p>
@@ -679,8 +682,8 @@ ADPC: withdraw=*, consent=cookies
           The user agent <em class="rfc2119">MUST</em> make it as easy to withdraw as to give consent in order to comply with Article 7(3) GDPR. This requires that the option to withdraw consent via the user agent must be as easy to access and exercise as the option to consent to the processing operation.
         </p>
       </section>
-      <section id="objecting-to-processing">
-        <h3 id="x6-4-objecting-to-processing"><bdi class="secno">6.4 </bdi>Objecting to processing<a class="self-link" aria-label="§" href="#objecting-to-processing"></a></h3>
+      <section id="objecting-to-processing"><div class="header-wrapper"><h3 id="x6-4-objecting-to-processing"><bdi class="secno">6.4 </bdi>Objecting to processing</h3><a class="self-link" href="#objecting-to-processing" aria-label="Permalink for Section 6.4"></a></div>
+        
         <p>
           The user may <dfn data-lt="objects to processing of their personal data|object to processing of their personal data" id="dfn-objects-to-processing-of-their-personal-data" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">object to processing of their personal data</dfn> as provided for under Article 21 GDPR. Objection involves passing the appropriate <a data-link-type="dfn" href="#dfn-objection-identifier" class="internalDFN" id="ref-for-dfn-objection-identifier-1">objection identifier</a>.
         </p>
@@ -701,8 +704,8 @@ ADPC: withdraw=*, consent=cookies
           </p>
         </aside></div>
       </section>
-      <section id="combining-signals">
-        <h3 id="x6-5-combining-signals"><bdi class="secno">6.5 </bdi>Combining signals<a class="self-link" aria-label="§" href="#combining-signals"></a></h3>
+      <section id="combining-signals"><div class="header-wrapper"><h3 id="x6-5-combining-signals"><bdi class="secno">6.5 </bdi>Combining signals</h3><a class="self-link" href="#combining-signals" aria-label="Permalink for Section 6.5"></a></div>
+        
         <p>
           To ensure that the records of user preferences stored by the user agent and by the website stay synchronised and to ensure that the signalled preferences prevail over other interactions, it may be useful to combine multiple signals.
         </p>
@@ -713,7 +716,7 @@ ADPC: withdraw=*, consent=cookies
     <a class="self-link" href="#example-10">Example<bdi> 10</bdi></a>
   </div>
           <p>
-            A user may instruct the user agent to generally withdraw all previously given consent as well as to object to any direct marketing, but consent to the purposes identified by <code>q1analytics</code> and <code>q2recommendation</code> as in <a href="#example-giving-consent" class="box-ref">Example<bdi> 8</bdi></a>. In the HTTP approach this could be expressed by sending this header:
+            A user may instruct the user agent to generally withdraw all previously given consent as well as to object to any direct marketing, but consent to the purposes identified by <code>q1analytics</code> and <code>q2recommendation</code> as in <a href="#example-giving-consent" data-matched-text="[[[#example-giving-consent]]]" class="box-ref">Example<bdi> 8</bdi></a>. In the HTTP approach this could be expressed by sending this header:
           </p>
           <pre class="http" aria-busy="false"><code class="hljs">ADPC: withdraw=*, object=direct-marketing, consent="q1analytics q2recommendation"</code></pre>
           <p>
@@ -725,8 +728,8 @@ ADPC: withdraw=*, consent=cookies
 
 
 
-    <section id="http-based-interaction">
-      <h2 id="http-interaction"><bdi class="secno">7. </bdi>HTTP-based interaction<a class="self-link" aria-label="§" href="#http-interaction"></a></h2>
+    <section id="http-based-interaction"><div class="header-wrapper"><h2 id="http-interaction"><bdi class="secno">7. </bdi>HTTP-based interaction</h2><a class="self-link" href="#http-interaction" aria-label="Permalink for Section 7."></a></div>
+      
       <p>
         This section defines the first of the two ways to use the ADPC mechanism, which primarily communicates using the HTTP headers exchanged between the web server and user agent, while using a JSON resource to convey the consent requests.
       </p>
@@ -735,8 +738,8 @@ ADPC: withdraw=*, consent=cookies
           An individual HTTP interaction consists of a request by the user, and a response from the web server. However, the communication flow for consent tends to require the reverse: the website informs the user about its data processing purposes, to which the visitor may respond by giving consent, or refusing to. Therefore, the ADPC flow starts with the HTTP response of the server, to which the user agent responds in subsequent HTTP request(s). Because the user agent would normally only send the ADPC header if the server proclaims to support the protocol, this approach should also limit the options for device fingerprinting.
         </p>
       </aside></div>
-      <section id="requesting-consent-0">
-        <h3 id="requesting-consent-http"><bdi class="secno">7.1 </bdi>Requesting consent<a class="self-link" aria-label="§" href="#requesting-consent-http"></a></h3>
+      <section id="requesting-consent-0"><div class="header-wrapper"><h3 id="requesting-consent-http"><bdi class="secno">7.1 </bdi>Requesting consent</h3><a class="self-link" href="#requesting-consent-http" aria-label="Permalink for Section 7.1"></a></div>
+        
         <p>
           A website lists the processing purposes it requests consent for in a <dfn id="dfn-consent-requests-resource" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">consent requests resource</dfn>, which is a JSON file containing an object with the following attributes:
         </p>
@@ -818,8 +821,8 @@ Link: &lt;/our-dp-policy.fr.json&gt;; rel="consent-requests"; hreflang="fr"
         <p>
           When the user agent detects a <code>consent-requests</code> link in a document in the <a data-link-type="dfn" data-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#top-level-browsing-context">top-level browsing context</a>, it would typically fetch and parse the linked JSON resource and, if this succeeds, <a data-link-type="dfn" href="#dfn-present-the-requests" class="internalDFN" id="ref-for-dfn-present-the-requests-1">present the requests</a> to the user. It <em class="rfc2119">MAY</em> reduce traffic by only fetching the resource once the user decides to interact with the consent requests.
         </p>
-        <section id="making-zero-requests">
-          <h4 id="x7-1-1-making-zero-requests"><bdi class="secno">7.1.1 </bdi>Making zero requests<a class="self-link" aria-label="§" href="#making-zero-requests"></a></h4>
+        <section id="making-zero-requests"><div class="header-wrapper"><h4 id="x7-1-1-making-zero-requests"><bdi class="secno">7.1.1 </bdi>Making zero requests</h4><a class="self-link" href="#making-zero-requests" aria-label="Permalink for Section 7.1.1"></a></div>
+          
           <p>
             A website may want to explicitly express that it does not request any consent. The obvious approach would be to present a consent requests resource with an empty object as the value of <code>consentRequests</code>. In the HTTP-based approach, this could however cause an unnecessary round trip for obtaining this consent requests resource. Moreover, in a user agent that notifies or hints the user about consent requests before it retrieves the consent requests resource, it could cause a confusing experience.
           </p>
@@ -836,8 +839,8 @@ Link: &lt;about:blank&gt;; rel="consent-requests"
           </aside>
         </section>
       </section>
-      <section id="giving-and-withdrawing-consent">
-        <h3 id="giving-and-withdrawing-consent-http"><bdi class="secno">7.2 </bdi>Giving and withdrawing consent<a class="self-link" aria-label="§" href="#giving-and-withdrawing-consent-http"></a></h3>
+      <section id="giving-and-withdrawing-consent"><div class="header-wrapper"><h3 id="giving-and-withdrawing-consent-http"><bdi class="secno">7.2 </bdi>Giving and withdrawing consent</h3><a class="self-link" href="#giving-and-withdrawing-consent-http" aria-label="Permalink for Section 7.2"></a></div>
+        
         <p>
           To <a data-link-type="dfn" href="#dfn-give-consent" class="internalDFN" id="ref-for-dfn-give-consent-2">give consent</a> or <a data-link-type="dfn" href="#dfn-withdraw-consent" class="internalDFN" id="ref-for-dfn-withdraw-consent-1">withdraw consent</a> to zero or more specific processing purposes listed in the received <a data-link-type="dfn" href="#dfn-consent-requests-resource" class="internalDFN" id="ref-for-dfn-consent-requests-resource-3">consent requests resource</a>, the user agent adds the <code>ADPC</code> HTTP header in its subsequent HTTP requests to the website.
         </p>
@@ -854,7 +857,7 @@ Link: &lt;about:blank&gt;; rel="consent-requests"
     <a class="self-link" href="#example-giving-consent-http">Example<bdi> 16</bdi></a><span class="example-title">: Giving consent via HTTP</span>
   </div>
           <p>
-            To the consent requests presented in <a href="#example-consent-requests-list" class="box-ref">Example<bdi> 5</bdi></a>, assume the user has decided to consent to the processing of their personal data for the purposes of product improvement and personalised recommendations. On the subsequent request(s) to the server, the user agent adds the <code>ADPC</code> header:
+            To the consent requests presented in <a href="#example-consent-requests-list" data-matched-text="[[[#example-consent-requests-list]]]" class="box-ref">Example<bdi> 5</bdi></a>, assume the user has decided to consent to the processing of their personal data for the purposes of product improvement and personalised recommendations. On the subsequent request(s) to the server, the user agent adds the <code>ADPC</code> header:
           </p>
           <pre class="http" aria-busy="false"><code class="hljs">GET /some/page HTTP/1.1
 ADPC: consent="q1analytics q2recommendation"
@@ -903,8 +906,8 @@ ADPC: withdraw=*
 …</code></pre>
         </aside>
       </section>
-      <section id="objecting-to-processing-0">
-        <h3 id="objecting-to-processing-http"><bdi class="secno">7.3 </bdi>Objecting to processing<a class="self-link" aria-label="§" href="#objecting-to-processing-http"></a></h3>
+      <section id="objecting-to-processing-0"><div class="header-wrapper"><h3 id="objecting-to-processing-http"><bdi class="secno">7.3 </bdi>Objecting to processing</h3><a class="self-link" href="#objecting-to-processing-http" aria-label="Permalink for Section 7.3"></a></div>
+        
         <p>
           To <a data-link-type="dfn" href="#dfn-objects-to-processing-of-their-personal-data" class="internalDFN" id="ref-for-dfn-objects-to-processing-of-their-personal-data-1">object to processing of their personal data</a>, the user agent adds the <code>ADPC</code> HTTP header to any HTTP request to the website, with the value <code>object=</code> followed by a double-quoted string containing zero or more <a data-link-type="dfn" href="#dfn-objection-identifier" class="internalDFN" id="ref-for-dfn-objection-identifier-2">objection identifiers</a>. If the list has only one identifier, the double quotes can be omitted. If it has zero identifiers, the value can equivalently be empty, or the header can be omitted altogether.
         </p>
@@ -918,7 +921,7 @@ ADPC: withdraw=*
 ADPC: object=direct-marketing
 …</code></pre>
           <p>
-            Extending <a href="#example-standalone-withdraw-http" class="box-ref">Example<bdi> 19</bdi></a>, the user expresses the objection in combination with a withdrawal of all previous consent:
+            Extending <a href="#example-standalone-withdraw-http" data-matched-text="[[[#example-standalone-withdraw-http]]]" class="box-ref">Example<bdi> 19</bdi></a>, the user expresses the objection in combination with a withdrawal of all previous consent:
           </p>
           <pre class="http" aria-busy="false"><code class="hljs">GET /some/page HTTP/1.1
 ADPC: withdraw=*, object=direct-marketing
@@ -929,8 +932,8 @@ ADPC: withdraw=*, object=direct-marketing
 
 
 
-    <section id="javascript-based-interaction">
-      <h2 id="javascript-interaction"><bdi class="secno">8. </bdi>JavaScript-based interaction<a class="self-link" aria-label="§" href="#javascript-interaction"></a></h2>
+    <section id="javascript-based-interaction"><div class="header-wrapper"><h2 id="javascript-interaction"><bdi class="secno">8. </bdi>JavaScript-based interaction</h2><a class="self-link" href="#javascript-interaction" aria-label="Permalink for Section 8."></a></div>
+      
       <p>
         While the HTTP signalling approach can be sufficient, there are several reasons why a website may prefer to communicate in other ways. For example:
       </p>
@@ -950,8 +953,8 @@ ADPC: withdraw=*, object=direct-marketing
           While the <code>website.example</code> web server would receive the user’s consent decisions through the HTTP request headers, the <code>cmp.example</code> web server would not. Hence, <code>cmp.example</code> cannot adjust the script’s content to comply with the user’s decisions. The script will be executed in context of the <code>website.example</code> page, but cannot read the HTTP headers that had been sent while requesting that page. The JavaScript interface provides a practical solution to this issue.
         </p>
       </aside>
-      <section id="requesting-consent-1">
-        <h3 id="requesting-consent-js"><bdi class="secno">8.1 </bdi>Requesting consent<a class="self-link" aria-label="§" href="#requesting-consent-js"></a></h3>
+      <section id="requesting-consent-1"><div class="header-wrapper"><h3 id="requesting-consent-js"><bdi class="secno">8.1 </bdi>Requesting consent</h3><a class="self-link" href="#requesting-consent-js" aria-label="Permalink for Section 8.1"></a></div>
+        
         <p>
           To <a data-link-type="dfn" href="#dfn-request-consent" class="internalDFN" id="ref-for-dfn-request-consent-2">request consent</a> for zero or more processing purposes, a website’s scripts can invoke the <a data-link-type="idl" data-lt="request()" href="#dfn-request" class="internalDFN" id="ref-for-dfn-request-1"><code>request</code></a><code>()</code> function, passing it a <a data-link-type="dfn" href="#dfn-consent-requests-list" class="internalDFN" id="ref-for-dfn-consent-requests-list-5">consent requests list</a>. The user agent will then <a data-link-type="dfn" href="#dfn-present-the-requests" class="internalDFN" id="ref-for-dfn-present-the-requests-2">present the requests</a> to the user, or/and directly return a response based on the user’s previous responses or preferences.
         </p>
@@ -981,8 +984,8 @@ ADPC: withdraw=*, object=direct-marketing
 ]);</code></pre>
         </aside>
       </section>
-      <section id="giving-and-withdrawing-consent-and-objecting-to-processing">
-        <h3 id="giving-withdrawing-objecting-js"><bdi class="secno">8.2 </bdi>Giving and withdrawing consent, and objecting to processing<a class="self-link" aria-label="§" href="#giving-withdrawing-objecting-js"></a></h3>
+      <section id="giving-and-withdrawing-consent-and-objecting-to-processing"><div class="header-wrapper"><h3 id="giving-withdrawing-objecting-js"><bdi class="secno">8.2 </bdi>Giving and withdrawing consent, and objecting to processing</h3><a class="self-link" href="#giving-withdrawing-objecting-js" aria-label="Permalink for Section 8.2"></a></div>
+        
         <p>
           To signal user decisions to the website, the user agent passes the appropriate values in the return value of the <a data-link-type="idl" data-lt="request()" href="#dfn-request" class="internalDFN" id="ref-for-dfn-request-3"><code>request</code></a><code>()</code> function. The return value is a <a data-link-type="idl" data-lt="Promise" data-type="interface" href="https://webidl.spec.whatwg.org/#idl-promise"><code>Promise</code></a> that resolves with a <a data-link-type="dfn" href="#dfn-user-decisions-object" class="internalDFN" id="ref-for-dfn-user-decisions-object-2">user decisions object</a>.
         </p>
@@ -1010,7 +1013,7 @@ ADPC: withdraw=*, object=direct-marketing
     <a class="self-link" href="#example-giving-consent-js">Example<bdi> 23</bdi></a><span class="example-title">: Giving consent via JavaScript</span>
   </div>
           <p>
-            Suppose that, in response to the request shown in <a href="#example-consent-requests-js" class="box-ref">Example<bdi> 22</bdi></a>, the user decided to consent to the processing of their personal data for the purposes of product improvement and personalised recommendations. The value of <code>userDecisionsPromise</code> would then resolve to:
+            Suppose that, in response to the request shown in <a href="#example-consent-requests-js" data-matched-text="[[[#example-consent-requests-js]]]" class="box-ref">Example<bdi> 22</bdi></a>, the user decided to consent to the processing of their personal data for the purposes of product improvement and personalised recommendations. The value of <code>userDecisionsPromise</code> would then resolve to:
           </p>
           <pre aria-busy="false"><code class="hljs javascript">{
   <span class="hljs-attr">consent</span>: [<span class="hljs-string">"q1analytics"</span>, <span class="hljs-string">"q2recommendation"</span>]
@@ -1032,19 +1035,19 @@ ADPC: withdraw=*, object=direct-marketing
 }</code></pre>
         </aside>
       </section>
-      <section id="interface-definition">
-        <h3 id="x8-3-interface-definition"><bdi class="secno">8.3 </bdi>Interface definition<a class="self-link" aria-label="§" href="#interface-definition"></a></h3>
-        <pre class="idl def" id="webidl-1604574685"><span class="idlHeader"><a class="self-link" href="#webidl-1604574685">WebIDL</a></span><code><span data-idl="" class="idlInterface" id="idl-def-dataprotectioncontrol" data-title="DataProtectionControl">[<span class="extAttr"><a data-type="extended-attribute" href="https://webidl.spec.whatwg.org/#Exposed">Exposed</a>=<a data-type="interface" href="https://html.spec.whatwg.org/multipage/system-state.html#navigator">Navigator</a></span>]
+      <section id="interface-definition"><div class="header-wrapper"><h3 id="x8-3-interface-definition"><bdi class="secno">8.3 </bdi>Interface definition</h3><a class="self-link" href="#interface-definition" aria-label="Permalink for Section 8.3"></a></div>
+        
+        <pre class="idl def" id="webidl-1604574685"><span class="idlHeader"><a class="self-link" href="#webidl-1604574685">WebIDL</a></span><code><span data-idl="" class="idlInterface" id="idl-def-dataprotectioncontrol" data-title="DataProtectionControl">[<span class="extAttr"><a data-type="extended-attribute" href="https://webidl.spec.whatwg.org/#Exposed">Exposed</a>=Navigator</span>]
 interface <dfn data-export="" data-dfn-type="interface" id="dom-dataprotectioncontrol" data-idl="interface" data-title="DataProtectionControl" data-dfn-for="" class="idlID" tabindex="0" aria-haspopup="dialog"><code>DataProtectionControl</code></dfn> : <span class="idlSuperclass"><a data-type="interface" href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a></span> {<span data-idl="" class="idlMethod" id="idl-def-dataprotectioncontrol-request-consentrequestslist" data-title="request" data-dfn-for="DataProtectionControl"><span class="idlType">
   <a data-type="interface" href="https://webidl.spec.whatwg.org/#idl-promise">Promise</a>&lt;<a href="#dom-userdecisionsobject" class="internalDFN" data-link-type="idl" id="ref-for-dom-userdecisionsobject-1"><code>UserDecisionsObject</code></a>&gt;</span> <dfn data-export="" data-dfn-type="method" id="dom-dataprotectioncontrol-request" data-idl="operation" data-title="request" data-dfn-for="DataProtectionControl" data-type="Promise" data-lt="request()|request(consentRequestsList)" data-local-lt="DataProtectionControl.request|DataProtectionControl.request()|request" class="idlName" tabindex="0" aria-haspopup="dialog"><code>request</code></dfn>(<span class="idlType"><a data-type="interface" href="https://webidl.spec.whatwg.org/#idl-object">object</a></span> <span class="idlParamName">consentRequestsList</span>);</span>
 };</span><span data-idl="" class="idlInterface" id="idl-def-adpcevent" data-title="AdpcEvent">
 
-[<span class="extAttr"><a data-type="extended-attribute" href="https://webidl.spec.whatwg.org/#Exposed">Exposed</a>=<a href="#dfn-dataprotectioncontrol" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-dataprotectioncontrol-1">DataProtectionControl</a></span>]
+[<span class="extAttr"><a data-type="extended-attribute" href="https://webidl.spec.whatwg.org/#Exposed">Exposed</a>=DataProtectionControl</span>]
 interface <dfn data-export="" data-dfn-type="interface" id="dom-adpcevent" data-idl="interface" data-title="AdpcEvent" data-dfn-for="" class="idlID" tabindex="0" aria-haspopup="dialog"><code>AdpcEvent</code></dfn> {<span data-idl="" class="idlAttribute" id="idl-def-adpcevent-userdecisions" data-title="userDecisions" data-dfn-for="AdpcEvent">
   readonly attribute<span class="idlType"> <a href="#dom-userdecisionsobject" class="internalDFN" data-link-type="idl" id="ref-for-dom-userdecisionsobject-2"><code>UserDecisionsObject</code></a></span> <dfn data-export="" data-dfn-type="attribute" id="dom-adpcevent-userdecisions" data-idl="attribute" data-title="userDecisions" data-dfn-for="AdpcEvent" data-type="UserDecisionsObject" data-lt="userDecisions" data-local-lt="AdpcEvent.userDecisions" class="idlName" tabindex="0" aria-haspopup="dialog"><code>userDecisions</code></dfn>;</span>
 };</span><span data-idl="" class="idlInterface" id="idl-def-userdecisionsobject" data-title="UserDecisionsObject">
 
-[<span class="extAttr"><a data-type="extended-attribute" href="https://webidl.spec.whatwg.org/#Exposed">Exposed</a>=<a href="#dfn-dataprotectioncontrol" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-dataprotectioncontrol-2">DataProtectionControl</a></span>]
+[<span class="extAttr"><a data-type="extended-attribute" href="https://webidl.spec.whatwg.org/#Exposed">Exposed</a>=DataProtectionControl</span>]
 interface <dfn data-export="" data-dfn-type="interface" id="dom-userdecisionsobject" data-idl="interface" data-title="UserDecisionsObject" data-dfn-for="" class="idlID" tabindex="0" aria-haspopup="dialog"><code>UserDecisionsObject</code></dfn> {<span data-idl="" class="idlAttribute" id="idl-def-userdecisionsobject-consent" data-title="consent" data-dfn-for="UserDecisionsObject">
   readonly attribute<span class="idlType"> <a data-type="interface" href="https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#domstringlist">DOMStringList</a>?</span> <dfn data-export="" data-dfn-type="attribute" id="dom-userdecisionsobject-consent" data-idl="attribute" data-title="consent" data-dfn-for="UserDecisionsObject" data-type="DOMStringList" data-lt="consent" data-local-lt="UserDecisionsObject.consent" class="idlName" tabindex="0" aria-haspopup="dialog"><code>consent</code></dfn>;</span><span data-idl="" class="idlAttribute" id="idl-def-userdecisionsobject-withdraw" data-title="withdraw" data-dfn-for="UserDecisionsObject">
   readonly attribute<span class="idlType"> <a data-type="interface" href="https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#domstringlist">DOMStringList</a>?</span> <dfn data-export="" data-dfn-type="attribute" id="dom-userdecisionsobject-withdraw" data-idl="attribute" data-title="withdraw" data-dfn-for="UserDecisionsObject" data-type="DOMStringList" data-lt="withdraw" data-local-lt="UserDecisionsObject.withdraw" class="idlName" tabindex="0" aria-haspopup="dialog"><code>withdraw</code></dfn>;</span><span data-idl="" class="idlAttribute" id="idl-def-userdecisionsobject-object" data-title="object" data-dfn-for="UserDecisionsObject">
@@ -1052,13 +1055,13 @@ interface <dfn data-export="" data-dfn-type="interface" id="dom-userdecisionsobj
 };</span><span data-idl="" class="idlInterface" id="idl-def-navigator-partial-1" data-title="Navigator">
 
 partial interface <a data-idl="partial" data-link-type="interface" data-title="Navigator" class="idlID" data-dfn-for="Navigator" data-type="interface" href="https://html.spec.whatwg.org/multipage/system-state.html#navigator">Navigator</a> {<span data-idl="" class="idlAttribute" id="idl-def-navigator-dataprotectioncontrol" data-title="dataProtectionControl" data-dfn-for="Navigator">
-  [<span class="extAttr"><a data-type="extended-attribute" href="https://webidl.spec.whatwg.org/#SameObject">SameObject</a></span>] readonly attribute<span class="idlType"> <a href="#dfn-dataprotectioncontrol" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-dataprotectioncontrol-3">DataProtectionControl</a></span> <dfn data-export="" data-dfn-type="attribute" id="dom-navigator-dataprotectioncontrol" data-idl="attribute" data-title="dataProtectionControl" data-dfn-for="Navigator" data-type="DataProtectionControl" data-lt="dataProtectionControl" data-local-lt="Navigator.dataProtectionControl" class="idlName" tabindex="0" aria-haspopup="dialog"><code>dataProtectionControl</code></dfn>;</span>
+  [<span class="extAttr"><a data-type="extended-attribute" href="https://webidl.spec.whatwg.org/#SameObject">SameObject</a></span>] readonly attribute<span class="idlType"> <a href="#dfn-dataprotectioncontrol" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-dataprotectioncontrol-1">DataProtectionControl</a></span> <dfn data-export="" data-dfn-type="attribute" id="dom-navigator-dataprotectioncontrol" data-idl="attribute" data-title="dataProtectionControl" data-dfn-for="Navigator" data-type="DataProtectionControl" data-lt="dataProtectionControl" data-local-lt="Navigator.dataProtectionControl" class="idlName" tabindex="0" aria-haspopup="dialog"><code>dataProtectionControl</code></dfn>;</span>
 };</span></code></pre>
         <p>
           The <dfn id="dfn-dataprotectioncontrol" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">dataProtectionControl</dfn> interface enables a web page to request consent from the user and learn about their data protection decisions.
         </p>
         <p>
-          The <dfn id="dfn-request" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">request()</dfn> method can be used to <a data-link-type="dfn" href="#dfn-request-consent" class="internalDFN" id="ref-for-dfn-request-consent-3">request consent</a>, as described in <a href="#requesting-consent-js" class="sec-ref">§&nbsp;<bdi class="secno">8.1 </bdi>Requesting consent</a>.
+          The <dfn id="dfn-request" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">request()</dfn> method can be used to <a data-link-type="dfn" href="#dfn-request-consent" class="internalDFN" id="ref-for-dfn-request-consent-3">request consent</a>, as described in <a href="#requesting-consent-js" data-matched-text="[[[#requesting-consent-js]]]" class="sec-ref"><bdi class="secno">8.1 </bdi>Requesting consent</a>.
         </p>
         <div class="note" id="issue-container-generatedID-9"><div role="heading" class="ednote-title marker" id="h-ednote" aria-level="4"><span>Editor's note</span></div><aside class="">
           <p>
@@ -1067,7 +1070,7 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
         </aside></div>
         <div class="note" role="note" id="issue-container-generatedID-10"><div role="heading" class="note-title marker" id="h-note-9" aria-level="4"><span>Note</span><span class="issue-label">: Relation with the Permissions specification</span></div><aside class="">
           <p>
-            While it remains close to the equivalent HTTP header signals described in <a href="#http-interaction" class="sec-ref">§&nbsp;<bdi class="secno">7. </bdi>HTTP-based interaction</a>, aspects of this JavaScript interface were inspired by the <cite><a class="bibref" data-link-type="biblio" href="#bib-permissions" title="Permissions">Permissions</a></cite> draft specification, and trying to make the two APIs more similar could be helpful for web developers.
+            While it remains close to the equivalent HTTP header signals described in <a href="#http-interaction" data-matched-text="[[[#http-interaction]]]" class="sec-ref"><bdi class="secno">7. </bdi>HTTP-based interaction</a>, aspects of this JavaScript interface were inspired by the <cite><a class="bibref" data-link-type="biblio" href="#bib-permissions" title="Permissions">Permissions</a></cite> draft specification, and trying to make the two APIs more similar could be helpful for web developers.
           </p>
           <p>
             Moreover, closer integration of these specifications may be worth consideration; this way, for example, a prompt could request the user both for technical access to one’s location data, and for consent to use this data for a given purpose.
@@ -1075,10 +1078,10 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
         </aside></div>
       </section>
     </section>
-    <section id="bulk-consent-requests-lists">
-      <h2 id="x9-bulk-consent-requests-lists"><bdi class="secno">9. </bdi>Bulk consent requests lists<a class="self-link" aria-label="§" href="#bulk-consent-requests-lists"></a></h2>
-      <section class="informative" id="concept">
-        <h3 id="x9-1-concept"><bdi class="secno">9.1 </bdi>Concept<a class="self-link" aria-label="§" href="#concept"></a></h3><p><em>This section is non-normative.</em></p>
+    <section id="bulk-consent-requests-lists"><div class="header-wrapper"><h2 id="x9-bulk-consent-requests-lists"><bdi class="secno">9. </bdi>Bulk consent requests lists</h2><a class="self-link" href="#bulk-consent-requests-lists" aria-label="Permalink for Section 9."></a></div>
+      
+      <section class="informative" id="concept"><div class="header-wrapper"><h3 id="x9-1-concept"><bdi class="secno">9.1 </bdi>Concept</h3><a class="self-link" href="#concept" aria-label="Permalink for Section 9.1"></a></div><p><em>This section is non-normative.</em></p>
+        
         <p>
           Users regularly feel overwhelmed by consent requests (‘consent fatigue’). Enabling trusted parties to suggest including or excluding certain consent requests could allow users and user agents to determine which consent requests to prioritise or automatically consent to, and which consent requests to ignore or automatically reject. Websites, groups of controllers or consumer groups may promote inclusion lists, for example of websites providing quality journalism or for the purpose of informing users about regular discounts.
         </p>
@@ -1092,8 +1095,8 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
           If a user agent allows to automatically consent to included consent requests, it <em class="rfc2119">MUST</em> ensure a freely given, specific, informed and unambiguous indication of the user’s wishes for each consent request.
         </p>
       </section>
-      <section id="definition">
-        <h3 id="x9-2-definition"><bdi class="secno">9.2 </bdi>Definition<a class="self-link" aria-label="§" href="#definition"></a></h3>
+      <section id="definition"><div class="header-wrapper"><h3 id="x9-2-definition"><bdi class="secno">9.2 </bdi>Definition</h3><a class="self-link" href="#definition" aria-label="Permalink for Section 9.2"></a></div>
+        
         <p>
           A <dfn data-plurals="bulk consent requests lists" id="dfn-bulk-consent-requests-list" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">bulk consent requests list</dfn> is a JSON file containing an object with the following attributes:
         </p>
@@ -1171,8 +1174,8 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
         </aside>
       </section>
     </section>
-    <section class="informative" id="compatibility-considerations">
-      <h2 id="x10-compatibility-considerations"><bdi class="secno">10. </bdi>Compatibility considerations<a class="self-link" aria-label="§" href="#compatibility-considerations"></a></h2><p><em>This section is non-normative.</em></p>
+    <section class="informative" id="compatibility-considerations"><div class="header-wrapper"><h2 id="x10-compatibility-considerations"><bdi class="secno">10. </bdi>Compatibility considerations</h2><a class="self-link" href="#compatibility-considerations" aria-label="Permalink for Section 10."></a></div><p><em>This section is non-normative.</em></p>
+      
       <p>
         Users may use various forms of communicating consent, withdrawal of consent, or objections — the user could send an email, letter, or click a button on a website. Independent of the communication channel, the most recent communication would usually override the previous exercise of rights. As the ADPC signal would typically be communicated in every interaction with a website, it would quickly override previous expressions through any other communication, like consent banners, emails or letters.
       </p>
@@ -1180,13 +1183,13 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
         If the ADPC signal is sent in the same transaction as another signal with related meaning (e.g. when clicking an “agree” button on a website, or sending another signal such as a <cite><a class="bibref" data-link-type="biblio" href="#bib-tracking-dnt" title="Tracking Preference Expression (DNT)">DNT</a></cite> or <a href="https://globalprivacycontrol.org/">Sec-GPC</a> HTTP header), any non-contradicting communication can be interpreted in combination without problem. Any expressions of consent that are in conflict with each other will not be “unambiguous” as required by Article 4(7) GDPR, and should thus be interpreted as a lack of valid consent.
       </p>
     </section>
-    <section class="informative" id="privacy-considerations">
-      <h2 id="x11-privacy-considerations"><bdi class="secno">11. </bdi>Privacy considerations<a class="self-link" aria-label="§" href="#privacy-considerations"></a></h2><p><em>This section is non-normative.</em></p>
+    <section class="informative" id="privacy-considerations"><div class="header-wrapper"><h2 id="x11-privacy-considerations"><bdi class="secno">11. </bdi>Privacy considerations</h2><a class="self-link" href="#privacy-considerations" aria-label="Permalink for Section 11."></a></div><p><em>This section is non-normative.</em></p>
+      
       <p>
         While the primary purpose of the specified mechanism is to help improve personal data protection, it is important to recognise that the approach is in essence legal, rather than technical. The mechanism conveys users’ decisions in a machine-readable manner, which the website might be legally obliged to respect, but the effective protection relies on the website’s compliance with the law. Privacy impact considerations can therefore be divided into the potential benefits from its use, and potential harms from its abuse.
       </p>
-      <section id="privacy-impact-in-case-of-compliant-websites">
-        <h3 id="x11-1-privacy-impact-in-case-of-compliant-websites"><bdi class="secno">11.1 </bdi>Privacy impact in case of compliant websites<a class="self-link" aria-label="§" href="#privacy-impact-in-case-of-compliant-websites"></a></h3>
+      <section id="privacy-impact-in-case-of-compliant-websites"><div class="header-wrapper"><h3 id="x11-1-privacy-impact-in-case-of-compliant-websites"><bdi class="secno">11.1 </bdi>Privacy impact in case of compliant websites</h3><a class="self-link" href="#privacy-impact-in-case-of-compliant-websites" aria-label="Permalink for Section 11.1"></a></div>
+        
         <p>
           To assess the impact, we compare the adoption of the specified mechanism with the commonly observed alternative: requests for consent via interfaces contained within the website’s pages, and stored using cookies or other browser storage. Adoption of this specification could yield the following benefits for user privacy:
         </p>
@@ -1205,19 +1208,19 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
           </li>
         </ul>
       </section>
-      <section id="privacy-impact-in-case-of-non-compliant-websites">
-        <h3 id="x11-2-privacy-impact-in-case-of-non-compliant-websites"><bdi class="secno">11.2 </bdi>Privacy impact in case of non-compliant websites<a class="self-link" aria-label="§" href="#privacy-impact-in-case-of-non-compliant-websites"></a></h3>
+      <section id="privacy-impact-in-case-of-non-compliant-websites"><div class="header-wrapper"><h3 id="x11-2-privacy-impact-in-case-of-non-compliant-websites"><bdi class="secno">11.2 </bdi>Privacy impact in case of non-compliant websites</h3><a class="self-link" href="#privacy-impact-in-case-of-non-compliant-websites" aria-label="Permalink for Section 11.2"></a></div>
+        
         <p>
           Even if the mechanism benefits privacy in websites that abide by it, it would be undesirable if it can harm their privacy in cases where websites do not comply. This section discusses limitations of the specified mechanism and some mitigations.
         </p>
-        <section id="misplaced-trust">
-          <h4 id="x11-2-1-misplaced-trust"><bdi class="secno">11.2.1 </bdi>Misplaced trust<a class="self-link" aria-label="§" href="#misplaced-trust"></a></h4>
+        <section id="misplaced-trust"><div class="header-wrapper"><h4 id="x11-2-1-misplaced-trust"><bdi class="secno">11.2.1 </bdi>Misplaced trust</h4><a class="self-link" href="#misplaced-trust" aria-label="Permalink for Section 11.2.1"></a></div>
+          
           <p>
             First of all, this mechanism cannot prevent websites from giving false or incomplete information, or simply disrespecting the user’s decisions. A false pretence of control may erode trust in the system. While this might equally be the case without use of this mechanism, the presentation through the web browser interface, which is generally more trusted than the website being visited, may give a false sense that decisions are enforced by the user agent, as is the case with permission requests for e.g. microphone access.
           </p>
         </section>
-        <section id="tracking">
-          <h4 id="x11-2-2-tracking"><bdi class="secno">11.2.2 </bdi>Tracking<a class="self-link" aria-label="§" href="#tracking"></a></h4>
+        <section id="tracking"><div class="header-wrapper"><h4 id="x11-2-2-tracking"><bdi class="secno">11.2.2 </bdi>Tracking</h4><a class="self-link" href="#tracking" aria-label="Permalink for Section 11.2.2"></a></div>
+          
           <p>
             A common concern with a new web standard is whether it enables websites to track users. Because the specified mechanism is only used with web pages in the top-level browsing context, and the user decisions are only presented to the individual website they apply to, it does not introduce new vectors for <em>cross-website tracking</em>. The specified HTTP headers are not passed along with, nor read from transactions with, a web page’s subresources, and the JavaScript interface is unusable inside framed pages.
           </p>
@@ -1234,15 +1237,15 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
             Even though the mechanism does not enable cross-website tracking, and is less impactful than first-party cookies, the possibility to track users would need to be much less than with cookies, so that users can trust they keep their data protection decisions when removing their cookies. To this end, mitigations should be developed, and implementers should evaluate their abilities to limit entropy and may make trade-offs between efficiency and anonymity.
           </p>
         </section>
-        <section id="third-party-scripts">
-          <h4 id="x11-2-3-third-party-scripts"><bdi class="secno">11.2.3 </bdi>Third-party scripts<a class="self-link" aria-label="§" href="#third-party-scripts"></a></h4>
+        <section id="third-party-scripts"><div class="header-wrapper"><h4 id="x11-2-3-third-party-scripts"><bdi class="secno">11.2.3 </bdi>Third-party scripts</h4><a class="self-link" href="#third-party-scripts" aria-label="Permalink for Section 11.2.3"></a></div>
+          
           <p>
-            Another potential privacy/security risk arises from the ability of a third-party script loaded into the web page to use the JavaScript interface as if it was part of the page itself. It could make the web page request consent and observe the user’s decisions for the website, and possibly transmit information back to its creators or other parties. However, this specification may not significantly exacerbate this already existing issue: any included third-party script needs to be fully trusted, and can do worse things than requesting consent. Common security features, such as <cite><a href="https://www.w3.org/TR/CSP2/">Content Security Policy Level 2</a></cite> and <cite><a href="https://www.w3.org/TR/SRI/">Subresource Integrity</a></cite>, can somewhat reduce the risk of including third-party scripts.
+            Another potential privacy/security risk arises from the ability of a third-party script loaded into the web page to use the JavaScript interface as if it was part of the page itself. It could make the web page request consent and observe the user’s decisions for the website, and possibly transmit information back to its creators or other parties. However, this specification may not significantly exacerbate this already existing issue: any included third-party script needs to be fully trusted, and can do worse things than requesting consent. Common security features, such as <cite><a data-matched-text="[[[?CSP2]]]" href="https://www.w3.org/TR/CSP2/">Content Security Policy Level 2</a></cite> and <cite><a data-matched-text="[[[?SRI]]]" href="https://www.w3.org/TR/SRI/">Subresource Integrity</a></cite>, can somewhat reduce the risk of including third-party scripts.
           </p>
         </section>
       </section>
-      <section id="user-agent-s-role-in-data-protection">
-        <h3 id="x11-3-user-agent-s-role-in-data-protection"><bdi class="secno">11.3 </bdi>User agent’s role in data protection<a class="self-link" aria-label="§" href="#user-agent-s-role-in-data-protection"></a></h3>
+      <section id="user-agent-s-role-in-data-protection"><div class="header-wrapper"><h3 id="x11-3-user-agent-s-role-in-data-protection"><bdi class="secno">11.3 </bdi>User agent’s role in data protection</h3><a class="self-link" href="#user-agent-s-role-in-data-protection" aria-label="Permalink for Section 11.3"></a></div>
+        
         <p>
           The specified mechanism gives the user agent an important role in the exercise of people’s data protection rights, and thereby also responsibilities. Following the principle of ‘privacy by default’, the mechanism is designed to err on the side of less processing when needed. For example, if a step in the protocol is hampered due to the consent requests resource being invalid or temporarily unavailable, the result is that no consent is requested, nor given.
         </p>
@@ -1254,15 +1257,15 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
         </p>
       </section>
     </section>
-    <section id="conformance"><h2 id="x12-conformance"><bdi class="secno">12. </bdi>Conformance<a class="self-link" aria-label="§" href="#conformance"></a></h2><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
+    <section id="conformance"><div class="header-wrapper"><h2 id="x12-conformance"><bdi class="secno">12. </bdi>Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 12."></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
         The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, <em class="rfc2119">MUST NOT</em>, <em class="rfc2119">SHALL</em>, and <em class="rfc2119">SHOULD</em> in this document
         are to be interpreted as described in
         <a href="https://datatracker.ietf.org/doc/html/bcp14">BCP 14</a>
         [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
         when, and only when, they appear in all capitals, as shown here.
       </p></section>
-    <section class="appendix" id="acknowledgements">
-      <h2 id="a-acknowledgements"><bdi class="secno">A. </bdi>Acknowledgements<a class="self-link" aria-label="§" href="#acknowledgements"></a></h2>
+    <section class="appendix" id="acknowledgements"><div class="header-wrapper"><h2 id="a-acknowledgements"><bdi class="secno">A. </bdi>Acknowledgements</h2><a class="self-link" href="#acknowledgements" aria-label="Permalink for Appendix A."></a></div>
+      
         <p>
           The authors are grateful for the contributions and feedback by Alan Dahi, Rob van Eijk, Stefanie Alice Hofer, Horst Kapfenberger, Mandan Kazzazi, Gustaf Neumann, Mike O’Neill, Harshvardhan J. Pandit, Monika Riegler, Stefano Rossetti, and our other colleagues from different institutions around the globe.
         </p>
@@ -1272,12 +1275,34 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
     </section>
   
 
-<section id="references" class="appendix"><h2 id="b-references"><bdi class="secno">B. </bdi>References<a class="self-link" aria-label="§" href="#references"></a></h2><section id="normative-references">
-    <h3 id="b-1-normative-references"><bdi class="secno">B.1 </bdi>Normative references<a class="self-link" aria-label="§" href="#normative-references"></a></h3>
-    <dl class="bibliography"><dt id="bib-dom">[dom]</dt><dd><a href="https://dom.spec.whatwg.org/"><cite>DOM Standard</cite></a>. Anne van Kesteren.  WHATWG. Living Standard. URL: <a href="https://dom.spec.whatwg.org/">https://dom.spec.whatwg.org/</a></dd><dt id="bib-html">[html]</dt><dd><a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Anne van Kesteren; Domenic Denicola; Ian Hickson; Philip Jägenstedt; Simon Pieters.  WHATWG. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a></dd><dt id="bib-rfc2119">[RFC2119]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a></dd><dt id="bib-rfc8174">[RFC8174]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a></dd><dt id="bib-uri">[URI]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc3986"><cite>Uniform Resource Identifier (URI): Generic Syntax</cite></a>. T. Berners-Lee; R. Fielding; L. Masinter.  IETF. January 2005. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3986">https://www.rfc-editor.org/rfc/rfc3986</a></dd><dt id="bib-url">[url]</dt><dd><a href="https://url.spec.whatwg.org/"><cite>URL Standard</cite></a>. Anne van Kesteren.  WHATWG. Living Standard. URL: <a href="https://url.spec.whatwg.org/">https://url.spec.whatwg.org/</a></dd><dt id="bib-webidl">[WEBIDL]</dt><dd><a href="https://webidl.spec.whatwg.org/"><cite>Web IDL Standard</cite></a>. Edgar Chen; Timothy Gu.  WHATWG. Living Standard. URL: <a href="https://webidl.spec.whatwg.org/">https://webidl.spec.whatwg.org/</a></dd></dl>
-  </section><section id="informative-references">
-    <h3 id="b-2-informative-references"><bdi class="secno">B.2 </bdi>Informative references<a class="self-link" aria-label="§" href="#informative-references"></a></h3>
-    <dl class="bibliography"><dt id="bib-csp2">[CSP2]</dt><dd><a href="https://www.w3.org/TR/CSP2/"><cite>Content Security Policy Level 2</cite></a>. Mike West; Adam Barth; Daniel Veditz.  W3C. 15 December 2016. W3C Recommendation. URL: <a href="https://www.w3.org/TR/CSP2/">https://www.w3.org/TR/CSP2/</a></dd><dt id="bib-permissions">[Permissions]</dt><dd><a href="https://www.w3.org/TR/permissions/"><cite>Permissions</cite></a>. Marcos Caceres; Mike Taylor; Jeffrey Yasskin.  W3C. 17 October 2021. W3C Working Draft. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a></dd><dt id="bib-sri">[SRI]</dt><dd><a href="https://www.w3.org/TR/SRI/"><cite>Subresource Integrity</cite></a>. Devdatta Akhawe; Frederik Braun; Francois Marier; Joel Weinberger.  W3C. 23 June 2016. W3C Recommendation. URL: <a href="https://www.w3.org/TR/SRI/">https://www.w3.org/TR/SRI/</a></dd><dt id="bib-tracking-dnt">[tracking-dnt]</dt><dd><a href="https://www.w3.org/TR/tracking-dnt/"><cite>Tracking Preference Expression (DNT)</cite></a>. Roy Fielding; David Singer.  W3C. 17 January 2019. W3C Note. URL: <a href="https://www.w3.org/TR/tracking-dnt/">https://www.w3.org/TR/tracking-dnt/</a></dd></dl>
+<section id="references" class="appendix"><div class="header-wrapper"><h2 id="b-references"><bdi class="secno">B. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix B."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="b-1-normative-references"><bdi class="secno">B.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix B.1"></a></div>
+    
+    <dl class="bibliography"><dt id="bib-dom">[dom]</dt><dd>
+      <a href="https://dom.spec.whatwg.org/"><cite>DOM Standard</cite></a>. Anne van Kesteren.  WHATWG. Living Standard. URL: <a href="https://dom.spec.whatwg.org/">https://dom.spec.whatwg.org/</a>
+    </dd><dt id="bib-html">[html]</dt><dd>
+      <a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Anne van Kesteren; Domenic Denicola; Ian Hickson; Philip Jägenstedt; Simon Pieters.  WHATWG. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
+    </dd><dt id="bib-rfc2119">[RFC2119]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
+    </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
+    </dd><dt id="bib-uri">[URI]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc3986"><cite>Uniform Resource Identifier (URI): Generic Syntax</cite></a>. T. Berners-Lee; R. Fielding; L. Masinter.  IETF. January 2005. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3986">https://www.rfc-editor.org/rfc/rfc3986</a>
+    </dd><dt id="bib-url">[url]</dt><dd>
+      <a href="https://url.spec.whatwg.org/"><cite>URL Standard</cite></a>. Anne van Kesteren.  WHATWG. Living Standard. URL: <a href="https://url.spec.whatwg.org/">https://url.spec.whatwg.org/</a>
+    </dd><dt id="bib-webidl">[WEBIDL]</dt><dd>
+      <a href="https://webidl.spec.whatwg.org/"><cite>Web IDL Standard</cite></a>. Edgar Chen; Timothy Gu.  WHATWG. Living Standard. URL: <a href="https://webidl.spec.whatwg.org/">https://webidl.spec.whatwg.org/</a>
+    </dd></dl>
+  </section><section id="informative-references"><div class="header-wrapper"><h3 id="b-2-informative-references"><bdi class="secno">B.2 </bdi>Informative references</h3><a class="self-link" href="#informative-references" aria-label="Permalink for Appendix B.2"></a></div>
+    
+    <dl class="bibliography"><dt id="bib-csp2">[CSP2]</dt><dd>
+      <a href="https://www.w3.org/TR/CSP2/"><cite>Content Security Policy Level 2</cite></a>. Mike West; Adam Barth; Daniel Veditz.  W3C. 15 December 2016. W3C Recommendation. URL: <a href="https://www.w3.org/TR/CSP2/">https://www.w3.org/TR/CSP2/</a>
+    </dd><dt id="bib-permissions">[Permissions]</dt><dd>
+      <a href="https://www.w3.org/TR/permissions/"><cite>Permissions</cite></a>. Marcos Caceres; Mike Taylor.  W3C. 3 March 2022. W3C Working Draft. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a>
+    </dd><dt id="bib-sri">[SRI]</dt><dd>
+      <a href="https://www.w3.org/TR/SRI/"><cite>Subresource Integrity</cite></a>. Devdatta Akhawe; Frederik Braun; Francois Marier; Joel Weinberger.  W3C. 23 June 2016. W3C Recommendation. URL: <a href="https://www.w3.org/TR/SRI/">https://www.w3.org/TR/SRI/</a>
+    </dd><dt id="bib-tracking-dnt">[tracking-dnt]</dt><dd>
+      <a href="https://www.w3.org/TR/tracking-dnt/"><cite>Tracking Preference Expression (DNT)</cite></a>. Roy Fielding; David Singer.  W3C. 17 January 2019. W3C Working Group Note. URL: <a href="https://www.w3.org/TR/tracking-dnt/">https://www.w3.org/TR/tracking-dnt/</a>
+    </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
   </p><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-request-consent" aria-label="Links in this document to definition: request consent">
@@ -1605,7 +1630,7 @@ partial interface <a data-idl="partial" data-link-type="interface" data-title="N
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-    <a href="#ref-for-dfn-dataprotectioncontrol-1" title="§ 8.3 Interface definition">§ 8.3 Interface definition</a> <a href="#ref-for-dfn-dataprotectioncontrol-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-dataprotectioncontrol-3" title="Reference 3">(3)</a> 
+    <a href="#ref-for-dfn-dataprotectioncontrol-1" title="§ 8.3 Interface definition">§ 8.3 Interface definition</a> 
   </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-request" aria-label="Links in this document to definition: request()">
@@ -1868,4 +1893,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body></html>
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
