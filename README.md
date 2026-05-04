@@ -20,8 +20,8 @@ ADPC aims to reduce friction for users and implementation costs for organisation
 
 - ADPC WordPress Plugin: https://github.com/Data-Protection-Control/ADPC-Wordpress — a WordPress implementation that publishes consent requests, exposes the ADPC discovery header, logs incoming ADPC headers, and bridges ADPC signals to existing consent-management workflows.
 - ADPC website: https://www.dataprotectioncontrol.org — background, explanation, and links to specification resources and sample implementations.
-
-Additional implementations for IoT, mixed reality, children’s services, and AI systems will be added to this list soon.
+- Other implementations can be found: https://github.com/Data-Protection-Control
+- Additional implementations for IoT, mixed reality, children’s services, and AI systems will be added to this list soon.
 
 ## More information
 
