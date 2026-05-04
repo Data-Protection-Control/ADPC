@@ -12,8 +12,8 @@
       var respecConfig = {
         specStatus: "unofficial",
         editors: [
+          { name: "Soheil Human", company: "Vienna University of Economics and Business", companyURL: "wu.ac.at", w3cid: 110909 }, 
           { name: "Gerben", company: "noyb", companyURL: "https://noyb.eu", w3cid: 73624 },
-          { name: "Soheil Human", company: "Sustainable Computing Lab", companyURL: "http://sustainablecomputing.eu", w3cid: 110909 },
         ],
         shortName: "data-protection-control",
         github: {
@@ -112,36 +112,30 @@
       <p>
         This specification defines automated means for website visitors to give or refuse consent for the specific purposes that the data controller describes, to withdraw any consent already given, as well as to object to processing for direct marketing purposes based on the data controller’s legitimate interest. This enables the user to easily manage data protection decisions through the web browser, and possibly to customise how requests are presented and responded to (e.g. using a browser extension to import lists of trusted websites). The result could be comparable to the way websites ask for permission to access a webcam or microphone: the browser keeps track of the user’s decisions on a site-by-site basis, ensures that the user gets a genuinely free choice, and puts the user in control over their decisions.
       </p>
+      
     </section>
 
 
 
-    <section class="informative">
-      <h2>Technical overview</h2>
-      <p>
-        The protocol described in this document interacts between the website and the user agent (i.e. the browser). The website provides the user agent with a machine-readable “[=consent requests list=]” that specifies the data processing purposes for which it requests the user’s consent. The user agent responds the user’s decisions to the website. The current specification defines two technical paths for these interactions:
-      </p>
-      <ol>
-        <li>
-          Between the website <em>back-end</em>, i.e. a web server, and the user agent; by means of an HTTP `Link` header (or an equivalent HTML `&lt;link&gt;`) pointing to a JSON file, and the `ADPC` header.
-        </li>
-        <li>
-          Between the website <em>front-end</em>, i.e. a web page, and the user agent; by means of a JavaScript interface.
-        </li>
-      </ol>
-      <p>
-        The two methods are equivalent in meaning. There may be technical reasons to use one over the other, or even combine them. For example, the JavaScript approach obviously only works if the user agent supports JavaScript, but it can be used without requiring changes to the back-end infrastructure. Moreover, it permits requesting consent in response to the user’s interactions with a page.
-      </p>
-      <p>
-        The options to present to the user are organised as a list of request strings, each associated with an identifier. In the HTTP-based approach this list is encoded as a JSON file that the website links to. In the JavaScript-based approach, it is passed directly as a JavaScript object to the DOM interface `navigator.dataProtectionControl.request(…)`.
-      </p>
-      <p>
-        The user’s response is presented to the website by listing the identifiers of the requests they consent to. In the HTTP-based approach, this list is sent in the `ADPC` HTTP header in a subsequent HTTP request, while in the JavaScript-based approach, the list is the final return value of the DOM interface.
-      </p>
-      <p>
-        In the subsequent sections, the communication protocol is defined in detail. First come examples ([[[#examples]]]) and relevant definitions ([[[#definitions]]]). Then [[[#signals]]] specifies the messages that the two sides exchange, defining the meaning of each. The two sections following it detail how these messages are technically conveyed via either the HTTP-based ([[[#http-interaction]]]) or JavaScript-based ([[[#javascript-interaction]]]) approach.
-      </p>
-    </section>
+<section class="informative">
+  <h2>Introduction</h2>
+  <p>Legal frameworks such as the European Union&rsquo;s General Data Protection Regulation (GDPR) and the ePrivacy Directive define rights and obligations around the processing of personal data and the use of terminal equipment. The GDPR requires every processing of personal data to have an appropriate legal basis. One such basis is consent, where <i>&ldquo;the data subject has given consent to the processing of his or her personal data for one or more specific purposes&rdquo;</i> (Article&nbsp;6(1)(a) GDPR). Consent must be freely given, specific, informed and unambiguous, and the data subject must be able to withdraw it as easily as it was given (Articles&nbsp;4(11) and&nbsp;7(3) GDPR).</p>
+  <p>The ePrivacy Directive adds a specific rule for terminal equipment: storing information on, or gaining access to information already stored on, a user&rsquo;s device generally requires the user&rsquo;s consent unless the operation is strictly necessary for transmitting a communication or for providing a service explicitly requested by the user (Article&nbsp;5(3) ePrivacy Directive). In addition, where a controller relies on legitimate interests for direct marketing, the data subject has an unconditional right to object to that processing at any time (Article&nbsp;21(2) GDPR).</p>
+  <p>In practice, these rights and choices are still commonly handled through website-controlled interfaces, especially so-called cookie banners. This approach asks people to make similar privacy decisions repeatedly, often through disruptive or manipulative interfaces, and it also creates recurring implementation and compliance costs for organisations. It is poorly suited to a digital environment in which people interact with services through browsers, mobile applications, connected devices, mixed-reality systems, wallets, operating systems and AI-assisted user agents.</p>
+  <p>EU law has long recognised that data-protection choices do not have to be communicated only through a website&rsquo;s own visual interface. In particular:</p>
+  <ul>
+    <li>Article&nbsp;21(5) GDPR expressly provides that, in the context of information society services, <i>&ldquo;the data subject may exercise his or her right to object by automated means using technical specifications&rdquo;</i>.</li>
+    <li>Recital&nbsp;32 GDPR states that consent can be expressed by different affirmative acts, including <i>&ldquo;choosing technical settings for information society services&rdquo;</i>, provided that the legal requirements for valid consent are met.</li>
+    <li>Recital&nbsp;66 of Directive&nbsp;2009/136/EC, which amended the ePrivacy Directive, likewise states that a user&rsquo;s consent to processing may be expressed by using the appropriate settings of a browser or other application, where technically possible and effective.</li>
+    <li>The European Commission&rsquo;s Digital Omnibus proposal, COM(2025)&nbsp;837 final, would insert a new Article&nbsp;88b into the GDPR on automated and machine-readable indications of data subjects&rsquo; choices. As proposed, Article&nbsp;88b would require online interfaces to allow data subjects to give consent, decline consent requests and exercise the right to object through automated and machine-readable means; it would also require controllers to respect those choices once the relevant framework applies.</li>
+  </ul>
+    <p> Proposed Article&nbsp;88b GDPR is the current legal development most directly aimed at moving from repeated banners to interoperable, machine-readable rights communication. It remains proposed legislation and should not be described as enacted law. Nevertheless, it reflects a clear policy direction: rights that already exist in law should be capable of being exercised through open, standardised and technically effective channels. </p>
+  <p>This specification defines such a channel. Advanced Data Protection Control (ADPC) is an automated, machine-readable mechanism for communicating data-protection choices between a controller and the user-side software that represents the person, such as a browser, browser extension, operating-system component, personal privacy assistant or comparable user agent. ADPC does not replace the substantive requirements of GDPR or ePrivacy law. It provides a communication layer through which legally relevant choices can be requested, expressed, remembered, updated and respected.</p>
+  <p>Under ADPC, a controller can describe the specific purposes for which it requests a decision. The user agent can then communicate the user&rsquo;s response: giving consent for one or more specific purposes, declining or refusing a consent request, withdrawing consent already given, or objecting to processing where a right to object applies, including direct marketing under Article&nbsp;21(2) GDPR. Consent must not be inferred from silence, default settings or inactivity. A user agent may communicate consent only where the request has been properly presented and the user has made a freely given, specific, informed and unambiguous affirmative choice.</p>
+  <p>ADPC is not a single global opt-out flag. It is a purpose-sensitive and controller-specific communication mechanism. It allows choices to be expressed for particular controllers, domains, purposes and request identifiers, while also allowing broader signals such as withdrawal of previously given consent where appropriate. Controllers may define their own purposes or use standardised vocabularies, but this specification does not impose one universal privacy vocabulary.</p>
+  <p>The mechanism is designed to be useful for both sides of the interaction. Users can manage privacy choices in software they control or trust, rather than repeatedly navigating controller-designed banners. Controllers can receive structured, auditable and interoperable signals that can be connected to existing consent-management, content-management and compliance workflows. Where a controller supports ADPC, unnecessary banners can be suppressed and valid choices can be applied with less friction.</p>
+  <p>The result is comparable to browser-mediated permission systems for access to a camera, microphone or location: the service can request access, the user agent can present the request in a consistent and user-controlled way, and the user&rsquo;s decision can be stored, changed and communicated on a site-by-site and purpose-by-purpose basis. ADPC extends that model to data-protection rights, helping to move from privacy by repetitive interruption to privacy by architecture.</p>
+</section>
 
 
 
