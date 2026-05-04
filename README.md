@@ -1,3 +1,5 @@
+<img src="assets/adpc_logo_high.png" alt="ADPC" width="50%">
+
 # ADPC
 Advanced Data Protection Control (or ADPC) is an automated mechanism for the communication of users’ privacy decisions and data controllers' responses. It aims to empower users to protect their online privacy in a human-centric, human-compatible and enforceable manner. It also helps online publishers and service providers to comply with the data protection and consumer protection regulations.
 
